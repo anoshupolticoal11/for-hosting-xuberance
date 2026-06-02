@@ -1,0 +1,476 @@
+@import "tailwindcss";
+
+@theme {
+  --color-abyssal: #02050e;
+  --color-deep-water: #071324;
+  --color-bioluminescent: #00f2fe;
+  --color-electric-sea: #00a2ff;
+  --color-aquatic-green: #0dffd6;
+  --color-marine-blue: #0072ff;
+
+  --font-orbitron: var(--font-orbitron);
+  --font-seaweed: var(--font-seaweed);
+  --font-mono-custom: var(--font-mono-custom);
+
+  --animate-marine-snow: marine-snow 10s linear infinite;
+  --animate-bubble-rise: bubble-rise 6s ease-in infinite;
+  --animate-wave-fill: wave-fill 4s ease-in-out infinite;
+  --animate-liquid-fill: liquid-fill 2s infinite alternate;
+  --animate-caustic-shimmer: caustic-shimmer 8s ease infinite;
+}
+
+@keyframes marine-snow {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.5;
+  }
+
+  90% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-10vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(100%) scale(0.8);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  90% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(-100%) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes wave-fill {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-25%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pulsing glow behind team member photos */
+@keyframes glowPulse {
+  0% {
+    opacity: 0.15;
+    transform: scale(1.05);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 0.15;
+    transform: scale(1.05);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #02050e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #071324 0%, #00f2fe 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f2fe;
+}
+
+/* Glassmorphism base cards */
+.glass-card {
+  background: rgba(2, 5, 14, 0.45);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(0, 242, 254, 0.4);
+  box-shadow: 0 0 30px rgba(0, 242, 254, 0.25);
+  transform: translateY(-4px);
+}
+
+/* Wave fill navigation links hover */
+.nav-link-btn {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  transition: border-color 0.3s ease;
+}
+
+.nav-link-btn:hover {
+  border-color: rgba(0, 242, 254, 0.8);
+}
+
+/* Fluid Wave SVG translation */
+.wave-svg {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  fill: rgba(0, 242, 254, 0.15);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(100%);
+  pointer-events: none;
+}
+
+.nav-link-btn:hover .wave-svg {
+  transform: translateY(0);
+}
+
+/* Scroll locked behavior utility */
+.scroll-locked {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+/* Caustic Glow Animation */
+.caustic-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(0, 242, 254, 0.15) 0%, transparent 60%);
+  filter: blur(40px);
+}
+
+/* Retro command line styling details */
+.terminal-input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(0, 242, 254, 0.3);
+  color: #ffffff;
+  outline: none;
+  font-family: var(--font-mono-custom);
+  font-size: 16px;
+  width: 100%;
+  padding: 4px 0;
+  transition: border-bottom-color 0.3s ease;
+}
+
+.terminal-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.terminal-input:focus {
+  border-bottom-color: #00f2fe;
+}
+
+/* Cyberpunk Schedule styles from x-uberance.vercel.app */
+.kusanagi {
+  font-family: var(--font-orbitron), sans-serif;
+}
+
+.azonix {
+  font-family: var(--font-orbitron), sans-serif;
+}
+
+.valorant {
+  font-family: var(--font-orbitron), sans-serif;
+}
+
+.cybr-btn {
+  --primary: #00f2fe;
+  --shadow-primary: #0dffd6;
+  --shadow-secondary: #0072ff;
+  --color: #ffffff;
+  --font-size: 18px;
+  --border: 3px;
+  --shimmy-distance: 5;
+  --clip: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    95% 100%,
+    95% 90%,
+    85% 90%,
+    85% 100%,
+    8% 100%,
+    0 70%
+  );
+  --clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+  --clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+  --clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
+  --clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+  --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+  --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
+  --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
+  color: var(--color);
+  cursor: pointer;
+  clip-path: var(--clip);
+  background: var(--primary);
+  text-transform: uppercase;
+  font-size: var(--font-size);
+  outline: transparent;
+  letter-spacing: 2px;
+  position: relative;
+  font-weight: 900;
+  border: 0;
+  min-width: 140px;
+  height: 50px;
+  line-height: 50px;
+  transition: background 0.2s;
+  font-family: var(--font-orbitron), sans-serif;
+}
+
+.cybr-btn:hover {
+  --primary: #00d5e0;
+}
+
+.cybr-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  clip-path: var(--clip);
+  z-index: -1;
+  background: var(--shadow-primary);
+  transform: translate(var(--border), 0);
+}
+
+.cybr-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  clip-path: var(--clip);
+  z-index: -1;
+  background: var(--primary);
+}
+
+.cybr-btn__glitch {
+  position: absolute;
+  top: calc(var(--border) * -1);
+  left: calc(var(--border) * -1);
+  right: calc(var(--border) * -1);
+  bottom: calc(var(--border) * -1);
+  background: var(--shadow-primary);
+  text-shadow:
+    2px 2px var(--shadow-primary),
+    -2px -2px var(--shadow-secondary);
+  clip-path: var(--clip);
+  animation: glitch 2s infinite;
+  display: none;
+  color: white;
+}
+
+.cybr-btn:hover .cybr-btn__glitch {
+  display: block;
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--clip-one);
+  }
+  2%,
+  8% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  6% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  9% {
+    clip-path: var(--clip-two);
+    transform: translate(0, 0);
+  }
+  10% {
+    clip-path: var(--clip-three);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  13% {
+    clip-path: var(--clip-three);
+    transform: translate(0, 0);
+  }
+  14%,
+  21% {
+    clip-path: var(--clip-four);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  25% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  30% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  35%,
+  45% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * -1%));
+  }
+  40% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * 1%));
+  }
+  50% {
+    clip-path: var(--clip-six);
+    transform: translate(0, 0);
+  }
+  55% {
+    clip-path: var(--clip-seven);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  60% {
+    clip-path: var(--clip-seven);
+    transform: translate(0, 0);
+  }
+  31%,
+  61%,
+  100% {
+    clip-path: var(--clip-four);
+  }
+}
+
+/* Event List Frames */
+.events-frame {
+  transform: skewX(-15deg);
+  margin: 20px auto;
+  width: 90%;
+  max-width: 580px;
+  position: relative;
+  background-color: black;
+  height: 60px;
+  z-index: 10;
+  border: 2px solid rgba(0, 242, 254, 0.4);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+  transition: all 0.3s ease;
+}
+
+.events-frame:hover {
+  border-color: rgba(13, 255, 214, 0.8);
+  box-shadow: 0 0 25px rgba(13, 255, 214, 0.35);
+}
+
+.events {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  text-align: center;
+  position: relative;
+}
+
+.events h2 {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-align: center;
+  transform: skewX(15deg);
+  color: white;
+}
+
+.venue-block {
+  background: black;
+  border: 2px solid white;
+  border-image: linear-gradient(to right, #00f2fe, #0072ff) 1;
+  position: absolute;
+  left: -80px;
+  top: 5px;
+  transform: translateY(0);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 20;
+}
+
+.venue-block p {
+  padding: 4px 12px;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono-custom), monospace;
+  font-size: 0.7rem;
+  text-align: center;
+  transform: skewX(15deg);
+  color: #00f2fe;
+}
+
+.time-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #0dffd6, #0072ff);
+  position: absolute;
+  right: -30px;
+  bottom: 5px;
+  height: 80%;
+  width: 90px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 20;
+}
+
+.time-block p {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-align: center;
+  transform: skewX(15deg);
+  color: black;
+}
+
+.events-frame:hover .venue-block {
+  transform: translateY(-8px);
+}
+
+.events-frame:hover .time-block {
+  transform: translateY(8px);
+}
+
+@media only screen and (max-width: 768px) {
+  .events-frame {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 85%;
+  }
+
+  .venue-block {
+    left: -10px;
+    top: -35px;
+  }
+
+  .time-block {
+    right: -10px;
+    bottom: -35px;
+  }
+}
