@@ -233,21 +233,21 @@ export default function TeamPage() {
             {teacherRows.map((row, rowIdx) => (
               <div
                 key={rowIdx}
-                className={
-                  row.length === 1
-                    ? "flex justify-center items-start w-full max-w-[80vw]"
-                    : "grid grid-cols-3 justify-items-center items-start gap-x-4 md:gap-x-16 gap-y-10 w-full max-w-[80vw]"
-                }
+                className="grid grid-cols-3 justify-items-center items-start gap-x-4 md:gap-x-16 gap-y-10 w-full max-w-[80vw]"
               >
                 {row.map((teacher, idx) => (
-                  <HologramCard
+                  <div
                     key={teacher.name}
-                    name={teacher.name}
-                    title={teacher.title}
-                    imageSrc="/placeholders/placeholder.jpg"
-                    animDir={(rowIdx + idx) % 2 === 0 ? slideInLeft : slideInRight}
-                    fillGrid={row.length > 1}
-                  />
+                    className={row.length === 1 ? "col-start-2 w-full" : "w-full"}
+                  >
+                    <HologramCard
+                      name={teacher.name}
+                      title={teacher.title}
+                      imageSrc="/placeholders/placeholder.jpg"
+                      animDir={(rowIdx + idx) % 2 === 0 ? slideInLeft : slideInRight}
+                      fillGrid={true}
+                    />
+                  </div>
                 ))}
               </div>
             ))}
