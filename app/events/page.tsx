@@ -90,30 +90,53 @@ export default function EventsPage() {
           </motion.p>
         </section>
 
-        {/* Category Selector — 3 9:16 vertical cards */}
+        {/* Category Selector */}
         <section className="max-w-5xl mx-auto px-6 md:px-8 pb-28 flex-grow w-full flex items-center justify-center">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 w-full"
+            className="w-full"
           >
-            {categories.map((cat) => {
-              return (
-                <motion.div key={cat.id} variants={itemVariants} className="w-full">
-                  <Link href={`/events/${cat.id}`} className="block w-full">
-                    <LiquidWrapper
-                      className="relative w-full aspect-[9/16] flex flex-col items-center justify-center rounded-2xl border-2 border-cyan-500/20 text-cyan-100 shadow-[0_0_15px_rgba(0,242,254,0.1)] hover:shadow-[0_0_40px_rgba(0,242,254,0.35)] hover:border-cyan-400 hover:text-cyan-400 p-6 md:p-8"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-b from-cyan-950/20 to-slate-950/45 rounded-2xl pointer-events-none -z-10" />
-                      <span className="font-orbitron text-xl sm:text-2xl font-black tracking-[0.15em] text-center uppercase leading-snug">
-                        {cat.label}
-                      </span>
-                    </LiquidWrapper>
-                  </Link>
-                </motion.div>
-              );
-            })}
+            {/* Desktop View: Grid of 3 vertical aspect-[9/16] cards (hidden on mobile / small screen) */}
+            <div className="hidden lg:grid grid-cols-3 gap-8 md:gap-10 w-full">
+              {categories.map((cat) => {
+                return (
+                  <motion.div key={cat.id} variants={itemVariants} className="w-full">
+                    <Link href={`/events/${cat.id}`} className="block w-full">
+                      <LiquidWrapper
+                        className="relative w-full aspect-[9/16] flex flex-col items-center justify-center rounded-2xl border-2 border-cyan-500/20 text-cyan-100 shadow-[0_0_15px_rgba(0,242,254,0.1)] hover:shadow-[0_0_40px_rgba(0,242,254,0.35)] hover:border-cyan-400 hover:text-cyan-400 p-6 md:p-8"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-b from-cyan-950/20 to-slate-950/45 rounded-2xl pointer-events-none -z-10" />
+                        <span className="font-orbitron text-xl sm:text-2xl font-black tracking-[0.15em] text-center uppercase leading-snug">
+                          {cat.label}
+                        </span>
+                      </LiquidWrapper>
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Mobile / Small Screen View: Vertical list of 3 horizontal rectangular buttons */}
+            <div className="flex flex-col gap-5 w-full lg:hidden max-w-md mx-auto">
+              {categories.map((cat) => {
+                return (
+                  <motion.div key={cat.id} variants={itemVariants} className="w-full">
+                    <Link href={`/events/${cat.id}`} className="block w-full">
+                      <LiquidWrapper
+                        className="relative w-full py-5 flex items-center justify-center rounded-xl border-2 border-cyan-500/20 text-cyan-100 shadow-[0_0_15px_rgba(0,242,254,0.1)] hover:shadow-[0_0_35px_rgba(0,242,254,0.3)] hover:border-cyan-400 hover:text-cyan-400 px-6 cursor-pointer"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/20 via-slate-950/45 to-cyan-950/20 rounded-xl pointer-events-none -z-10" />
+                        <span className="font-orbitron text-base sm:text-lg font-black tracking-[0.2em] text-center uppercase leading-snug">
+                          {cat.label}
+                        </span>
+                      </LiquidWrapper>
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </div>
           </motion.div>
         </section>
 

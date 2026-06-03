@@ -25,7 +25,7 @@ export default function VideoBackground() {
     <div className="fixed inset-0 w-full h-full -z-20 pointer-events-none overflow-hidden select-none">
       {/* Background Image */}
       <Image
-        src="/bg.png"
+        src="/newbg.png"
         alt="Ocean Abyss Background"
         fill
         priority

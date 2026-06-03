@@ -38,7 +38,6 @@ const day2Schedule: ScheduleItem[] = [
   { event: "Registration", venue: "Front Desk", time: "7:30 AM" },
   { event: "X-PAINTING (Sketching)", venue: "Art Room", time: "10:30 AM" },
   { event: "X-PULL (Girls) (Tug Of War)", venue: "Senior School Main Field", time: "2:30 PM" },
-  { event: "X-HOP (Dance Face Off)", venue: "Primary School Gymnasium", time: "10:30 AM" },
   { event: "X-HACK (Hackathon)", venue: "Computer Lab", time: "8:30 AM" },
   { event: "X-MATE (Chess)", venue: "Big Parlour", time: "9:00 AM" },
   { event: "X-PRESS (Poster Making)", venue: "Big Parlour", time: "1:00 PM" },
@@ -66,6 +65,7 @@ const day3Schedule: ScheduleItem[] = [
   { event: "X-WICKET (Cricket)", venue: "Senior School Main Field", time: "8:30 AM" },
   { event: "X-KHO (Girls) (Kho Kho)", venue: "Secondary Back Field", time: "8:30 AM" },
   { event: "X-SPRAY (Spray Painting)", venue: "Primary School Gymnasium", time: "8:30 AM" },
+  { event: "X-HOP (Dance Face Off)", venue: "Primary School Gymnasium", time: "10:30 AM" },
   { event: "X-RAPPORTEUR (Vlogging & Journalism)", venue: "Reading Room", time: "10:30 AM" },
   { event: "X-KOBITA (Bengali poem)", venue: "Fr. Bruylants Hall", time: "8:30 AM" },
   { event: "X-ALAAP (Hindi Antakshari)", venue: "Xavier Hall", time: "8:30 AM" },
@@ -139,36 +139,74 @@ export default function SchedulePage() {
           </motion.h2>
 
           {/* Table Container */}
-          <div className="w-full flex flex-col items-center gap-4">
-            <AnimatePresence mode="popLayout">
-              {items.map((item, idx) => (
-                <motion.div
-                  key={activeDay + "-" + item.event + "-" + idx}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 30 }}
-                  transition={{ duration: 0.4, delay: idx * 0.04 }}
-                  className="w-full flex justify-center"
-                >
-                  <div className="events-frame w-full max-w-[580px]">
-                    <div className="events">
-                      {/* Venue label - slides up on hover */}
-                      <div className="venue-block">
-                        <p dangerouslySetInnerHTML={{ __html: item.venue }} />
-                      </div>
+          <div className="w-full">
+            {/* Desktop View */}
+            <div className="hidden md:flex flex-col items-center gap-4 w-full">
+              <AnimatePresence mode="popLayout">
+                {items.map((item, idx) => (
+                  <motion.div
+                    key={"desktop-" + activeDay + "-" + item.event + "-" + idx}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 30 }}
+                    transition={{ duration: 0.4, delay: idx * 0.04 }}
+                    className="w-full flex justify-center"
+                  >
+                    <div className="events-frame w-full max-w-[580px]">
+                      <div className="events">
+                        {/* Venue label - slides up on hover */}
+                        <div className="venue-block">
+                          <p dangerouslySetInnerHTML={{ __html: item.venue }} />
+                        </div>
 
-                      {/* Event Name */}
-                      <h2>{item.event}</h2>
+                        {/* Event Name */}
+                        <h2>{item.event}</h2>
 
-                      {/* Time label - slides down on hover */}
-                      <div className="time-block">
-                        <p>{item.time}</p>
+                        {/* Time label - slides down on hover */}
+                        <div className="time-block">
+                          <p>{item.time}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+
+            {/* Mobile View */}
+            <div className="flex flex-col gap-4 w-full md:hidden px-2">
+              <AnimatePresence mode="popLayout">
+                {items.map((item, idx) => (
+                  <motion.div
+                    key={"mobile-" + activeDay + "-" + item.event + "-" + idx}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.3, delay: idx * 0.03 }}
+                    className="relative w-full rounded-xl bg-slate-950/70 border border-cyan-500/15 p-4 flex flex-col gap-2.5 overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md"
+                  >
+                    {/* Left cyan accent bar */}
+                    <div className="absolute left-0 top-0 bottom-0 w-[4px] bg-gradient-to-b from-cyan-400 to-blue-500" />
+                    
+                    {/* Top row: Time and Venue */}
+                    <div className="flex items-center justify-between gap-4 pl-2">
+                      <span className="font-orbitron text-xs font-extrabold text-cyan-400 tracking-wider">
+                        {item.time}
+                      </span>
+                      <span 
+                        className="font-mono-custom text-[10px] text-cyan-300/80 bg-cyan-950/45 px-2.5 py-1 rounded border border-cyan-500/10 uppercase tracking-wider max-w-[60%] truncate"
+                        dangerouslySetInnerHTML={{ __html: item.venue }}
+                      />
+                    </div>
+                    
+                    {/* Event Title */}
+                    <h3 className="font-orbitron text-sm sm:text-base font-black tracking-wider text-slate-100 pl-2 uppercase">
+                      {item.event}
+                    </h3>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
           </div>
 
 

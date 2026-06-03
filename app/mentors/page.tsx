@@ -14,9 +14,9 @@ const mentors = [
     image: "/patrons/principal.png",
   },
   {
-    name: "Fr. Narendra Singh S.J",
+    name: "Fr. Vivien Andrew",
     title: "Vice Principal",
-    image: "/patrons/vice-principal.png",
+    image: "/placeholders/placeholder.jpg",
   },
   {
     name: "Mrs. Soma Gomes",

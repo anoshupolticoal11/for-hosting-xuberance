@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import ParticleImage from "@/components/ui/ParticleImage";
 
 function CountdownTimer() {
   const targetDate = new Date("2026-07-10T00:00:00+05:30").getTime();
@@ -119,14 +120,18 @@ export default function HeroSection() {
         {/* Logo at the very top (larger as requested, pushed upwards with mb-4) */}
         <motion.div
           variants={itemVariants}
-          className="relative w-72 h-72 md:w-[26rem] md:h-[26rem] mb-4 drop-shadow-[0_0_50px_rgba(0,242,254,0.45)]"
+          className="relative w-72 h-72 md:w-[26rem] md:h-[26rem] mb-4 drop-shadow-[0_0_50px_rgba(0,242,254,0.45)] flex items-center justify-center"
         >
-          <Image
-            src="/Xub.png"
-            alt="X-Uberance Logo"
-            fill
-            className="object-contain"
-            priority
+          <ParticleImage
+            imageSrc="/Xub.png"
+            responsiveWidth={true}
+            particleGap="3"
+            particleSize="1.5"
+            mouseForce="40"
+            noise={6}
+            initPosition="random"
+            initDirection="random"
+            className="hidden"
           />
         </motion.div>
 

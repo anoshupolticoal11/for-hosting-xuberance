@@ -179,9 +179,7 @@ export default function EventTracks() {
             </div>
           </div>
 
-          {/* Edge fade gradients */}
-          <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#02050e]/90 to-transparent pointer-events-none z-20" />
-          <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#02050e]/90 to-transparent pointer-events-none z-20" />
+
         </div>
 
         {/* Dot indicators */}

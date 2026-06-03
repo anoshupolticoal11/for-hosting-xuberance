@@ -30,17 +30,25 @@ const fadeUp = {
 } as const;
 
 // Data models
-const teachers = [
-  "Mr. Santanu Jana",
-  "Mr. Somnath Dhar",
-  "Ms. Anasuya Mandal",
-  "Ms. Sudha Jaiswal",
-  "Mr. Asit Das",
-  "Mr. Farino Torcato",
-  "Mr. Romario Angelo Topno",
-  "Ms. Dipanjana Roy",
-  "Ms. Sayanti Koner",
-  "Ms. Aparna Sikdar",
+const teacherRows = [
+  [
+    { name: "Mr. Santanu Jana", title: "Teacher In-charge" }
+  ],
+  [
+    { name: "Mr. Somnath Dhar", title: "Member" },
+    { name: "Ms. Anasuya Mandal", title: "Member" },
+    { name: "Ms. Sudha Jaiswal", title: "Member" }
+  ],
+  [
+    { name: "Mr. Asit Das", title: "Member" },
+    { name: "Mr. Farino Torcato", title: "Member" },
+    { name: "Mr. Romario Angelo Topno", title: "Member" }
+  ],
+  [
+    { name: "Ms. Dipanjana Roy", title: "Member" },
+    { name: "Ms. Sayanti Koner", title: "Member" },
+    { name: "Ms. Aparna Sikdar", title: "Member" }
+  ]
 ];
 
 const coreCommittee = {
@@ -206,23 +214,29 @@ export default function TeamPage() {
           </motion.h1>
 
           {/* ===================== TEACHERS IN CHARGE ===================== */}
-          <section className="w-full mb-16 flex flex-col items-center">
+          <section className="w-full mb-16 flex flex-col items-center gap-10">
             <motion.h2
               {...fadeUp}
-              className="font-orbitron text-3xl md:text-5xl font-black tracking-widest text-center pt-10 mb-12 uppercase text-slate-100"
+              className="font-orbitron text-3xl md:text-5xl font-black tracking-widest text-center pt-10 mb-2 uppercase text-slate-100"
             >
-              Teachers-in-charge
+              Teachers Core Committee
             </motion.h2>
-            <div className="flex flex-wrap justify-center items-start gap-x-8 md:gap-x-16 gap-y-10 w-full max-w-[80vw]">
-              {teachers.map((name, idx) => (
-                <HologramCard
-                  key={name}
-                  name={name}
-                  imageSrc="/placeholders/placeholder.jpg"
-                  animDir={idx % 2 === 0 ? slideInLeft : slideInRight}
-                />
-              ))}
-            </div>
+            {teacherRows.map((row, rowIdx) => (
+              <div
+                key={rowIdx}
+                className="flex flex-wrap justify-center items-start gap-x-8 md:gap-x-16 gap-y-10 w-full max-w-[80vw]"
+              >
+                {row.map((teacher, idx) => (
+                  <HologramCard
+                    key={teacher.name}
+                    name={teacher.name}
+                    title={teacher.title}
+                    imageSrc="/placeholders/placeholder.jpg"
+                    animDir={(rowIdx + idx) % 2 === 0 ? slideInLeft : slideInRight}
+                  />
+                ))}
+              </div>
+            ))}
           </section>
 
           {/* ===================== CORE COMMITTEE ===================== */}
