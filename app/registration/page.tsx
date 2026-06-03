@@ -70,7 +70,7 @@ export default function RegistrationPage() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                
+
                 {/* Username */}
                 <div className="flex flex-col space-y-2">
                   <label className="font-orbitron text-sm font-bold text-white/80 tracking-widest uppercase">
@@ -94,7 +94,7 @@ export default function RegistrationPage() {
                   <input
                     type="password"
                     required
-                    placeholder="ENTER YOUR SECRET KEY..."
+                    placeholder="ENTER YOUR PASSWORD..."
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="terminal-input font-mono-custom text-base"
