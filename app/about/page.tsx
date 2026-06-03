@@ -76,11 +76,14 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="lg:col-span-5 relative h-64 md:h-80 rounded-2xl overflow-hidden glass-card p-2 border border-cyan-400/20 group hover:scale-[1.02] transition-transform duration-500">
-                <div className="relative w-full h-full rounded-xl overflow-hidden bg-slate-900/60">
-                  {/* Decorative ocean graphic or abstract element instead of broken school.png */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#02050e] via-[#071324]/50 to-cyan-500/20 flex items-center justify-center">
-                    <span className="font-orbitron text-6xl opacity-20 select-none">NIHIL ULTRA</span>
-                  </div>
+                <div className="relative w-full h-full rounded-xl overflow-hidden">
+                  <Image
+                    src="/school.png"
+                    alt="St. Xavier's Collegiate School"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#02050e]/60 via-transparent to-transparent" />
                 </div>
               </div>
             </motion.section>

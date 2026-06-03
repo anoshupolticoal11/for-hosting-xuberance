@@ -71,7 +71,7 @@ export default function AboutSection() {
                 className="lg:col-span-5 relative h-64 md:h-80 rounded-2xl overflow-hidden border border-cyan-400/20 group hover:scale-[1.02] transition-transform duration-500"
               >
                 <Image
-                  src="https://xcelsior26.tech/xcelsior1.png"
+                  src="/school.png"
                   alt="St. Xavier's Collegiate School"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"

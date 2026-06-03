@@ -50,7 +50,7 @@ function AnimatedCounter({ target, suffix, duration = 2000 }: AnimatedCounterPro
   return (
     <span
       ref={ref}
-      className="font-orbitron text-5xl md:text-7xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white via-cyan-100 to-cyan-400 drop-shadow-[0_0_25px_rgba(0,242,254,0.3)] tabular-nums transition-all"
+      className="font-orbitron text-2xl sm:text-4xl md:text-7xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white via-cyan-100 to-cyan-400 drop-shadow-[0_0_25px_rgba(0,242,254,0.3)] tabular-nums transition-all"
     >
       {count}{suffix}
     </span>
@@ -80,7 +80,7 @@ export default function StatsBar() {
           {/* Inner glow */}
           <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-cyan-500/5" />
 
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-cyan-500/10">
+          <div className="relative z-10 grid grid-cols-3 gap-0 divide-x divide-cyan-500/10">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -88,10 +88,10 @@ export default function StatsBar() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="flex flex-col items-center justify-center py-10 md:py-14 px-4 group"
+                className="flex flex-col items-center justify-center py-6 sm:py-10 md:py-14 px-2 sm:px-4 group"
               >
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-                <span className="font-mono-custom text-xs md:text-sm tracking-[0.3em] text-cyan-300/70 mt-3">
+                <span className="font-mono-custom text-[8px] sm:text-xs md:text-sm tracking-[0.1em] sm:tracking-[0.3em] text-cyan-300/70 mt-2 sm:mt-3 text-center">
                   {stat.label}
                 </span>
               </motion.div>

@@ -474,3 +474,16 @@
     bottom: -35px;
   }
 }
+
+@keyframes logoGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.45));
+  }
+  50% {
+    filter: drop-shadow(0 0 35px rgba(0, 242, 254, 0.85));
+  }
+}
+
+.animate-logo-glow {
+  animation: logoGlow 3s ease-in-out infinite;
+}
