@@ -129,38 +129,43 @@ const departmentHeads = [
   },
 ];
 
-/* Reusable hologram card for a person with image */
 function HologramCard({
   name,
   title,
   imageSrc,
   animDir,
   isCore = false,
+  fillGrid = false,
 }: {
   name: string;
   title?: string;
   imageSrc: string;
   animDir: typeof slideInLeft | typeof slideInRight;
   isCore?: boolean;
+  fillGrid?: boolean;
 }) {
+  const cardWidth = fillGrid
+    ? "w-full"
+    : isCore
+      ? "w-[280px] md:w-[340px]"
+      : "w-[200px] md:w-[230px]";
+
+  const imgContainerClass = fillGrid
+    ? "relative w-full aspect-square rounded-xl overflow-hidden shadow-[0_0_35px_rgba(0,255,255,0.2)] group-hover:shadow-[0_0_60px_rgba(0,255,255,0.4)] transition-shadow duration-500"
+    : isCore
+      ? "relative w-[280px] h-[280px] md:w-[340px] md:h-[340px] rounded-xl overflow-hidden shadow-[0_0_40px_rgba(0,255,255,0.25)] group-hover:shadow-[0_0_70px_rgba(0,255,255,0.45)] transition-shadow duration-500"
+      : "relative w-[200px] h-[200px] md:w-[230px] md:h-[230px] rounded-xl overflow-hidden shadow-[0_0_35px_rgba(0,255,255,0.2)] group-hover:shadow-[0_0_60px_rgba(0,255,255,0.4)] transition-shadow duration-500";
+
   return (
     <motion.div
       {...animDir}
-      className={
-        isCore
-          ? "group flex flex-col items-center text-center w-[280px] md:w-[340px]"
-          : "group flex flex-col items-center text-center w-[200px] md:w-[230px]"
-      }
+      className={`group flex flex-col items-center text-center ${cardWidth}`}
     >
       {/* Image container with pulsing glow */}
-      <div className="relative mb-4">
+      <div className="relative mb-4 w-full flex justify-center">
         {/* Pulsing cyan glow behind the image */}
         <div className="absolute -inset-4 rounded-2xl bg-cyan-400/25 blur-3xl animate-[glowPulse_3s_ease-in-out_infinite] pointer-events-none" />
-        <div className={
-          isCore
-            ? "relative w-[280px] h-[280px] md:w-[340px] md:h-[340px] rounded-xl overflow-hidden shadow-[0_0_40px_rgba(0,255,255,0.25)] group-hover:shadow-[0_0_70px_rgba(0,255,255,0.45)] transition-shadow duration-500"
-            : "relative w-[200px] h-[200px] md:w-[230px] md:h-[230px] rounded-xl overflow-hidden shadow-[0_0_35px_rgba(0,255,255,0.2)] group-hover:shadow-[0_0_60px_rgba(0,255,255,0.4)] transition-shadow duration-500"
-        }>
+        <div className={imgContainerClass}>
           <Image
             src={imageSrc}
             alt={name}
@@ -174,17 +179,21 @@ function HologramCard({
         </div>
       </div>
       <h3 className={
-        isCore
-          ? "font-sans text-2xl md:text-3xl font-bold text-slate-100 group-hover:text-cyan-300 transition-colors duration-300 animate-none"
-          : "font-sans text-lg md:text-xl font-bold text-slate-100 group-hover:text-cyan-300 transition-colors duration-300 animate-none"
+        fillGrid
+          ? "font-sans text-xs sm:text-lg md:text-xl font-bold text-slate-100 group-hover:text-cyan-300 transition-colors duration-300 animate-none"
+          : isCore
+            ? "font-sans text-2xl md:text-3xl font-bold text-slate-100 group-hover:text-cyan-300 transition-colors duration-300 animate-none"
+            : "font-sans text-lg md:text-xl font-bold text-slate-100 group-hover:text-cyan-300 transition-colors duration-300 animate-none"
       }>
         {name}
       </h3>
       {title && (
         <p className={
-          isCore
-            ? "font-mono-custom text-base md:text-lg text-cyan-400/70 tracking-wider mt-1"
-            : "font-mono-custom text-sm md:text-base text-cyan-400/70 tracking-wider mt-1"
+          fillGrid
+            ? "font-mono-custom text-[10px] sm:text-sm md:text-base text-cyan-400/70 tracking-wider mt-1"
+            : isCore
+              ? "font-mono-custom text-base md:text-lg text-cyan-400/70 tracking-wider mt-1"
+              : "font-mono-custom text-sm md:text-base text-cyan-400/70 tracking-wider mt-1"
         }>
           {title}
         </p>
@@ -224,7 +233,11 @@ export default function TeamPage() {
             {teacherRows.map((row, rowIdx) => (
               <div
                 key={rowIdx}
-                className="flex flex-wrap justify-center items-start gap-x-8 md:gap-x-16 gap-y-10 w-full max-w-[80vw]"
+                className={
+                  row.length === 1
+                    ? "flex justify-center items-start w-full max-w-[80vw]"
+                    : "grid grid-cols-3 justify-items-center items-start gap-x-4 md:gap-x-16 gap-y-10 w-full max-w-[80vw]"
+                }
               >
                 {row.map((teacher, idx) => (
                   <HologramCard
@@ -233,6 +246,7 @@ export default function TeamPage() {
                     title={teacher.title}
                     imageSrc="/placeholders/placeholder.jpg"
                     animDir={(rowIdx + idx) % 2 === 0 ? slideInLeft : slideInRight}
+                    fillGrid={row.length > 1}
                   />
                 ))}
               </div>

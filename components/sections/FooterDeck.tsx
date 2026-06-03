@@ -40,10 +40,13 @@ export default function FooterDeck() {
               </h4>
               <div className="space-y-3 font-orbitron text-xs tracking-wider text-slate-400">
                 <p className="hover:text-cyan-400 transition-colors">
-                  Debarpon Mukherjee: <span className="font-sans text-cyan-400">+91 84205 64720</span>
+                  Adipta Mukherjee: <span className="font-sans text-cyan-400">+91 82408 85832</span>
                 </p>
                 <p className="hover:text-cyan-400 transition-colors">
-                  Jeehan Karanjai: <span className="font-sans text-cyan-400">+91 82748 69381</span>
+                  Abhirup Sen: <span className="font-sans text-cyan-400">+91 98312 12909</span>
+                </p>
+                <p className="hover:text-cyan-400 transition-colors">
+                  Rachiet Somani: <span className="font-sans text-cyan-400">+91 79800 72608</span>
                 </p>
               </div>
             </div>

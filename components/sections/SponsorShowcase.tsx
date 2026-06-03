@@ -113,16 +113,16 @@ function SponsorCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
-      className="flex flex-col items-center gap-4 group"
+      className="flex flex-col items-center gap-2 md:gap-4 group min-w-0 flex-shrink"
     >
       {/* Logo Container */}
       <div
-        className="relative rounded-2xl overflow-hidden border border-cyan-500/15 bg-slate-950/40 backdrop-blur-md
+        className="relative rounded-xl md:rounded-2xl overflow-hidden border border-cyan-500/15 bg-slate-950/40 backdrop-blur-md
                     group-hover:border-cyan-400/40 group-hover:shadow-[0_0_25px_rgba(0,242,254,0.12)]
-                    transition-all duration-500 flex items-center justify-center p-5"
+                    transition-all duration-500 flex items-center justify-center p-2 md:p-5 w-full"
         style={{
-          width: tier.logoSize + 50,
-          height: tier.logoSize + 30,
+          maxWidth: tier.logoSize + 50,
+          aspectRatio: `${tier.logoSize + 50} / ${tier.logoSize + 30}`,
         }}
       >
         <Image
@@ -130,14 +130,14 @@ function SponsorCard({
           alt={sponsor.name}
           width={tier.logoSize}
           height={tier.logoSize}
-          className="object-contain group-hover:scale-105 transition-transform duration-500"
+          className="object-contain group-hover:scale-105 transition-transform duration-500 w-full h-full"
         />
         {/* Subtle shimmer on top edge */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/25 to-transparent" />
       </div>
       {/* Tier label directly under its logo */}
       {label && (
-        <span className="font-orbitron text-sm md:text-base font-semibold text-cyan-400 tracking-[0.15em] uppercase text-center">
+        <span className="font-orbitron text-[8px] sm:text-sm md:text-base font-semibold text-cyan-400 tracking-[0.1em] md:tracking-[0.15em] uppercase text-center leading-tight">
           {label}
         </span>
       )}
@@ -186,7 +186,7 @@ export default function SponsorShowcase() {
             {/* === PYRAMID LAYOUT === */}
             <div className="flex flex-col items-center gap-16 md:gap-20">
               {pyramidRows.map((row, rowIdx) => (
-                <div key={rowIdx} className="flex flex-wrap justify-center gap-10 md:gap-16 lg:gap-24 w-full">
+                <div key={rowIdx} className="flex flex-nowrap justify-center gap-3 sm:gap-6 md:gap-16 lg:gap-24 w-full px-2 md:px-0">
                   {row.tiers.map((tier, tIdx) =>
                     tier.sponsors.map((sponsor, sIdx) => (
                       <SponsorCard
