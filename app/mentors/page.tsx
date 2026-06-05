@@ -105,7 +105,7 @@ export default function MentorsPage() {
           </motion.div>
 
           {/* Patron/Mentor Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 justify-items-center">
             {mentors.map((mentor, idx) => (
               <motion.div
                 key={mentor.name}
@@ -113,9 +113,7 @@ export default function MentorsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, margin: "-60px" }}
                 transition={{ duration: 0.7, delay: idx * 0.1 }}
-                className={`group flex flex-col items-center text-center ${
-                  mentors.length % 2 !== 0 && idx === mentors.length - 1 ? "sm:col-span-2" : ""
-                }`}
+                className="group flex flex-col items-center text-center w-full"
               >
                 {/* Holographic image container */}
                 <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-xl overflow-hidden mb-6 shadow-[0_0_30px_rgba(0,255,255,0.15)] group-hover:shadow-[0_0_50px_rgba(0,255,255,0.3)] transition-shadow duration-500">
