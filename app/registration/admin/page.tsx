@@ -45,6 +45,7 @@ export default function AdminPanelPage() {
   // General States
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
+  const [isExportingAll, setIsExportingAll] = useState(false);
 
   // Check auth and load accounts
   useEffect(() => {
@@ -198,6 +199,75 @@ export default function AdminPanelPage() {
     XLSX.utils.book_append_sheet(workbook, worksheet, "Registrations");
     XLSX.writeFile(workbook, `${schoolName}_registrations.xlsx`);
   };
+
+  const handleExportAllExcel = async () => {
+    setIsExportingAll(true);
+    try {
+      const res = await fetch("/api/admin/export-all");
+      if (!res.ok) {
+        const data = await res.json();
+        alert(data.error || "Failed to fetch all registrations");
+        return;
+      }
+      const json = await res.json();
+      if (!json.success || !json.data) {
+        alert("No registrations data found");
+        return;
+      }
+
+      const workbook = XLSX.utils.book_new();
+      let hasData = false;
+
+      json.data.forEach((school: any) => {
+        const schoolName = school.username;
+        const registrations = school.registrations || [];
+
+        const rows: any[] = [];
+        if (registrations.length === 0) {
+          rows.push([`SCHOOL: ${schoolName.toUpperCase()}`]);
+          rows.push(["NO REGISTRATIONS RECORDED YET"]);
+        } else {
+          registrations.forEach((reg: any) => {
+            rows.push([`EVENT NAME: ${reg.event_title.toUpperCase()}`]);
+            rows.push(["PARTICIPANT NAME", "PARTICIPANT NUMBER", "CLASS"]);
+            reg.participants.forEach((p: any) => {
+              rows.push([
+                p.name.toUpperCase(),
+                p.number,
+                p.class.toUpperCase()
+              ]);
+            });
+            rows.push([]); // blank separator
+          });
+          hasData = true;
+        }
+
+        const worksheet = XLSX.utils.aoa_to_sheet(rows);
+        
+        // Autowidth columns
+        worksheet["!cols"] = [
+          { wch: 30 },
+          { wch: 25 },
+          { wch: 15 }
+        ];
+
+        // Excel sheet name limit is 31 characters and must not contain special characters
+        const cleanSheetName = schoolName
+          .substring(0, 31)
+          .replace(/[\\\/\?\*\[\]\:]/g, "");
+
+        XLSX.utils.book_append_sheet(workbook, worksheet, cleanSheetName || "School");
+      });
+
+      XLSX.writeFile(workbook, `all_schools_registrations.xlsx`);
+    } catch (err) {
+      console.error(err);
+      alert("An error occurred during export");
+    } finally {
+      setIsExportingAll(false);
+    }
+  };
+
 
   if (isLoading && accounts.length === 0) {
     return (
@@ -366,9 +436,20 @@ export default function AdminPanelPage() {
                     <h2 className="font-orbitron text-lg md:text-xl font-bold tracking-widest mb-4">
                       VIEW MEMBER REGISTRATIONS
                     </h2>
-                    <p className="font-mono-custom text-xs text-zinc-500 uppercase">
+                    <p className="font-mono-custom text-xs text-zinc-500 uppercase mb-6">
                       Select a school account to view and export registrations
                     </p>
+                  </div>
+
+                  <div className="flex justify-center mb-6">
+                    <button
+                      onClick={handleExportAllExcel}
+                      disabled={isExportingAll}
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-cyan-400 hover:bg-white text-slate-950 font-orbitron font-extrabold text-xs tracking-widest transition-all duration-300 cursor-pointer shadow-[0_0_15px_rgba(0,242,254,0.15)] disabled:opacity-50"
+                    >
+                      <Download size={14} />
+                      {isExportingAll ? "EXPORTING ALL..." : "DOWNLOAD ALL REGISTRATIONS (MULTI-SHEET)"}
+                    </button>
                   </div>
 
                   {/* Member Buttons */}
