@@ -26,7 +26,6 @@ export function decryptSession(cookieVal: string): SessionData | null {
       return JSON.parse(payload);
     }
   } catch (e) {
-    // Ignore error
   }
   return null;
 }
@@ -50,7 +49,7 @@ export async function setSession(data: SessionData) {
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
-    maxAge: 60 * 60 * 24 * 7, // 7 days
+    maxAge: 60 * 60 * 24 * 7,
   });
 }
 
