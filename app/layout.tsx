@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Orbitron, Seaweed_Script, JetBrains_Mono, Lobster_Two } from "next/font/google";
 import "./globals.css";
 import FluidCursorLoader from "@/components/sections/FluidCursorLoader";
+import HotkeyListener from "@/components/HotkeyListener";
 
 const orbitron = Orbitron({
   variable: "--font-orbitron",
@@ -50,6 +51,7 @@ export default function RootLayout({
       <body className="bg-[#02050e] text-slate-100 min-h-full font-sans overflow-x-clip selection:bg-cyan-500/30 selection:text-cyan-200">
         {children}
         <FluidCursorLoader />
+        <HotkeyListener />
       </body>
     </html>
   );

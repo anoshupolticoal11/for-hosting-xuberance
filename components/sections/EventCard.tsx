@@ -1,9 +1,6 @@
-"use client";
-
-import { useMouseGlare } from "@/hooks/useMouseGlare";
 import { motion } from "framer-motion";
 import { LucideIcon, Users } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 interface EventCardProps {
   title: string;
@@ -24,8 +21,46 @@ export default function EventCard({
   participants,
   tags,
 }: EventCardProps) {
-  const { glareStyle, tiltStyle, handleMouseMove, handleMouseLeave } = useMouseGlare();
   const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const glareRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = cardRef.current;
+    const glare = glareRef.current;
+    if (!el) return;
+
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const xPercent = (x / rect.width) * 100;
+    const yPercent = (y / rect.height) * 100;
+
+    const rotateY = ((x / rect.width) - 0.5) * 12; // tilt horizontally
+    const rotateX = -((y / rect.height) - 0.5) * 12; // tilt vertically
+
+    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+    el.style.transition = "transform 0.05s ease-out";
+
+    if (glare) {
+      glare.style.background = `radial-gradient(circle at ${xPercent}% ${yPercent}%, rgba(0, 242, 254, 0.15) 0%, rgba(0, 0, 0, 0) 60%)`;
+      glare.style.opacity = "1";
+    }
+  };
+
+  const handleMouseLeave = () => {
+    const el = cardRef.current;
+    const glare = glareRef.current;
+    if (!el) return;
+
+    el.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+    el.style.transition = "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)";
+
+    if (glare) {
+      glare.style.opacity = "0";
+    }
+  };
 
   const bubbleVariants = {
     hover: (i: number) => ({
@@ -47,12 +82,10 @@ export default function EventCard({
   };
 
   return (
-    <motion.div
-      style={tiltStyle}
-      onMouseMove={(e) => {
-        handleMouseMove(e);
-        setIsHovered(true);
-      }}
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         handleMouseLeave();
         setIsHovered(false);
@@ -61,8 +94,8 @@ export default function EventCard({
     >
       {/* Glare Overlay */}
       <div
+        ref={glareRef}
         className="absolute inset-0 pointer-events-none transition-opacity duration-300 opacity-0 group-hover:opacity-100 z-20"
-        style={glareStyle}
       />
 
       {/* Rising Liquid Background */}
@@ -96,12 +129,12 @@ export default function EventCard({
             {title}
           </h3>
           {subtitle && (
-            <p className="font-seaweed text-cyan-300 text-base mt-0.5 group-hover:text-slate-900/90 transition-colors duration-500">
+            <p className="font-lobster-two text-cyan-300 text-base mt-0.5 group-hover:text-slate-900/90 transition-colors duration-500">
               {subtitle}
             </p>
           )}
           {tagline && !subtitle && (
-            <p className="font-seaweed text-cyan-300 text-base mt-0.5 group-hover:text-slate-900/90 transition-colors duration-500">
+            <p className="font-lobster-two text-cyan-300 text-base mt-0.5 group-hover:text-slate-900/90 transition-colors duration-500">
               {tagline}
             </p>
           )}
@@ -122,6 +155,6 @@ export default function EventCard({
           )}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
