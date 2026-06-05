@@ -119,7 +119,7 @@ export default function HeroSection() {
         {/* Presents Text */}
         <motion.p
           variants={itemVariants}
-          className="font-mono-custom text-xs sm:text-sm md:text-base text-cyan-200/80 tracking-[0.2em] uppercase mb-4 text-center"
+          className="font-mono-custom text-sm sm:text-base md:text-lg text-white tracking-[0.2em] uppercase mt-12 mb-4 text-center"
         >
           St. Xavier&apos;s Collegiate School presents
         </motion.p>
