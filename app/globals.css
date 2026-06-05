@@ -369,7 +369,7 @@
   max-width: 580px;
   position: relative;
   background-color: black;
-  height: 80px;
+  height: 60px;
   z-index: 10;
   border: 2px solid rgba(0, 242, 254, 0.4);
   box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
@@ -429,28 +429,26 @@
 }
 
 .time-block {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to right, #0dffd6, #0072ff);
+  background: black;
+  border: 2px solid white;
+  border-image: linear-gradient(to right, #0dffd6, #0072ff) 1;
   position: absolute;
-  right: -30px;
+  right: -80px;
   bottom: 5px;
-  height: 80%;
-  width: 120px;
-  text-align: center;
   transform: translateY(0);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 20;
 }
 
 .time-block p {
+  padding: 4px 10px;
+  letter-spacing: 0.05em;
   font-family: var(--font-orbitron), sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   font-weight: 800;
   text-align: center;
   transform: skewX(15deg);
-  color: black;
+  color: #0dffd6;
   white-space: nowrap;
 }
 
