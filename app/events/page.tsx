@@ -105,9 +105,8 @@ export default function EventsPage() {
                   <motion.div key={cat.id} variants={itemVariants} className="w-full">
                     <Link href={`/events/${cat.id}`} className="block w-full">
                       <LiquidWrapper
-                        className="relative w-full aspect-[9/16] flex flex-col items-center justify-center rounded-2xl border-2 border-cyan-500/20 text-cyan-100 shadow-[0_0_15px_rgba(0,242,254,0.1)] hover:shadow-[0_0_40px_rgba(0,242,254,0.35)] hover:border-cyan-400 hover:text-cyan-400 p-6 md:p-8"
+                        className="relative w-full aspect-[9/16] flex flex-col items-center justify-center rounded-2xl border-2 border-cyan-500/20 bg-gradient-to-b from-cyan-950/20 to-slate-950/45 text-cyan-100 shadow-[0_0_15px_rgba(0,242,254,0.1)] hover:shadow-[0_0_40px_rgba(0,242,254,0.35)] hover:border-cyan-400 hover:text-white p-6 md:p-8"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-b from-cyan-950/20 to-slate-950/45 rounded-2xl pointer-events-none -z-10" />
                         <span className="font-orbitron text-xl sm:text-2xl font-black tracking-[0.15em] text-center uppercase leading-snug">
                           {cat.label}
                         </span>
@@ -125,9 +124,8 @@ export default function EventsPage() {
                   <motion.div key={cat.id} variants={itemVariants} className="w-full">
                     <Link href={`/events/${cat.id}`} className="block w-full">
                       <LiquidWrapper
-                        className="relative w-full py-5 flex items-center justify-center rounded-xl border-2 border-cyan-500/20 text-cyan-100 shadow-[0_0_15px_rgba(0,242,254,0.1)] hover:shadow-[0_0_35px_rgba(0,242,254,0.3)] hover:border-cyan-400 hover:text-cyan-400 px-6 cursor-pointer"
+                        className="relative w-full py-5 flex items-center justify-center rounded-xl border-2 border-cyan-500/20 bg-gradient-to-r from-cyan-950/20 via-slate-950/45 to-cyan-950/20 text-cyan-100 shadow-[0_0_15px_rgba(0,242,254,0.1)] hover:shadow-[0_0_35px_rgba(0,242,254,0.3)] hover:border-cyan-400 hover:text-white px-6 cursor-pointer"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/20 via-slate-950/45 to-cyan-950/20 rounded-xl pointer-events-none -z-10" />
                         <span className="font-orbitron text-base sm:text-lg font-black tracking-[0.2em] text-center uppercase leading-snug">
                           {cat.label}
                         </span>

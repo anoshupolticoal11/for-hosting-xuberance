@@ -145,10 +145,14 @@ export default function CategoryEventsClient({ category }: CategoryEventsClientP
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                  className="flex flex-wrap justify-center gap-8 w-full"
                 >
                   {filteredEvents.map((event, i) => (
-                    <motion.div key={event.title} variants={itemVariants}>
+                    <motion.div
+                      key={event.title}
+                      variants={itemVariants}
+                      className="w-full sm:w-[calc((100%-32px)/2)] lg:w-[calc((100%-64px)/3)]"
+                    >
                       <EventCard {...event} />
                     </motion.div>
                   ))}

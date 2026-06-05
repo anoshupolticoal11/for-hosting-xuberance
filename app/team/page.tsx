@@ -32,7 +32,7 @@ const fadeUp = {
 // Data models
 const teacherRows = [
   [
-    { name: "Mr. Santanu Jana", title: "Teacher In-charge" }
+    { name: "Mr. Santanu Jana", title: "Teacher-in-Charge" }
   ],
   [
     { name: "Mr. Somnath Dhar", title: "Member" },
@@ -54,16 +54,16 @@ const teacherRows = [
 const coreCommittee = {
   conveners: [{ name: "Adipta Mukherjee", title: "Convener" }],
   coConveners: [
-    { name: "Abhirup Sen", title: "Co-Convener" },
     { name: "Rachiet Somani", title: "Co-Convener" },
+    { name: "Abhirup Sen", title: "Co-Convener" },
   ],
   treasurers: [
     { name: "Lakshya Rampuria", title: "Treasurer" },
     { name: "Agastaya Poddar", title: "Treasurer" },
   ],
   techDirectors: [
-    { name: "Jeehan Karanjai", title: "Technical Director" },
     { name: "Yuvraj Singh", title: "Technical Director" },
+    { name: "Jeehan Karanjai", title: "Technical Director" },
   ],
   directors: [
     { name: "Devansh Farmania", title: "Director" },
@@ -71,8 +71,8 @@ const coreCommittee = {
     { name: "Madhav Sharma", title: "Director" },
   ],
   pros: [
-    { name: "Debayan Pathak", title: "P.R.O." },
     { name: "Jonathan Benjamin", title: "P.R.O." },
+    { name: "Debayan Pathak", title: "P.R.O." },
   ],
 };
 

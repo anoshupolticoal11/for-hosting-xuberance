@@ -50,7 +50,7 @@ export default function LiquidWrapper({
       className={`relative overflow-hidden transition-all duration-500 cursor-pointer group ${className}`}
     >
       {/* Content Label */}
-      <span className="relative z-10 block pointer-events-none transition-colors duration-500">
+      <span className="relative z-10 block pointer-events-none transition-colors duration-500 w-full text-center">
         {children}
       </span>
 

@@ -25,7 +25,7 @@ const mentors = [
   },
   {
     name: "Mr. Santanu Jana",
-    title: "The Teacher In-charge",
+    title: "Teacher-in-Charge",
     image: "/placeholders/placeholder.jpg",
   },
 ];

@@ -12,7 +12,7 @@ export default function FooterDeck() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
-          
+
           {/* Left Column: Big Logo + Title + Tagline + Description */}
           <div className="lg:col-span-5 space-y-4 flex flex-col items-start">
             <div className="relative w-28 h-28 md:w-36 md:h-36 drop-shadow-[0_0_20px_rgba(0,242,254,0.3)]">
@@ -23,7 +23,7 @@ export default function FooterDeck() {
                 className="object-contain"
               />
             </div>
-            
+
             <h3 className="font-orbitron text-2xl md:text-3xl font-black tracking-widest text-slate-100 uppercase">
               X-Uberance&apos;26
             </h3>
@@ -40,13 +40,10 @@ export default function FooterDeck() {
               </h4>
               <div className="space-y-3 font-orbitron text-xs tracking-wider text-slate-400">
                 <p className="hover:text-cyan-400 transition-colors">
-                  Adipta Mukherjee: <span className="font-sans text-cyan-400">+91 82408 85832</span>
+                  Debayan Pathak: <span className="font-sans text-cyan-400">+91 62912 88391</span>
                 </p>
                 <p className="hover:text-cyan-400 transition-colors">
-                  Abhirup Sen: <span className="font-sans text-cyan-400">+91 98312 12909</span>
-                </p>
-                <p className="hover:text-cyan-400 transition-colors">
-                  Rachiet Somani: <span className="font-sans text-cyan-400">+91 79800 72608</span>
+                  Jonathan Benjamin: <span className="font-sans text-cyan-400">+91 89814 08592</span>
                 </p>
               </div>
             </div>

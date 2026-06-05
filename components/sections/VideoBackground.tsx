@@ -33,7 +33,7 @@ export default function VideoBackground() {
       />
 
       {/* Darkening Overlay mask based on scroll depth */}
-      <div 
+      <div
         className="absolute inset-0 bg-slate-950 transition-opacity duration-300 ease-out pointer-events-none"
         style={{ opacity: overlayOpacity }}
       />
