@@ -58,8 +58,8 @@ const coreCommittee = {
     { name: "Abhirup Sen", title: "Co-Convener" },
   ],
   treasurers: [
-    { name: "Lakshya Rampuria", title: "Treasurer" },
     { name: "Agastaya Poddar", title: "Treasurer" },
+    { name: "Lakshya Rampuria", title: "Treasurer" },
   ],
   techDirectors: [
     { name: "Yuvraj Singh", title: "Technical Director" },
