@@ -34,7 +34,7 @@ export default function AboutSection() {
           className="relative rounded-3xl overflow-hidden"
         >
           {/* Glass background layers */}
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/30 via-slate-950/50 to-blue-950/30 backdrop-blur-2xl" />
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/90 via-slate-950/95 to-blue-950/90" />
           <div className="absolute inset-0 border border-cyan-400/15 rounded-3xl" />
           <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/5 via-transparent to-blue-500/5" />
           {/* Subtle inner shimmer */}

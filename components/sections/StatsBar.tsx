@@ -66,16 +66,16 @@ const stats = [
 export default function StatsBar() {
   return (
     <section className="relative py-12 md:py-16 bg-transparent overflow-hidden">
-      <div className="max-w-4xl mx-auto px-6 md:px-8">
+      <div className="max-w-5xl mx-auto px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-80px" }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="relative rounded-3xl overflow-hidden"
         >
           {/* Glass background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/40 via-slate-950/50 to-blue-950/40 backdrop-blur-2xl" />
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/90 via-slate-950/95 to-blue-950/90" />
           <div className="absolute inset-0 border border-cyan-400/15 rounded-3xl" />
           {/* Inner glow */}
           <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-cyan-500/5" />
@@ -86,9 +86,9 @@ export default function StatsBar() {
                 key={stat.label}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="flex flex-col items-center justify-center py-6 sm:py-10 md:py-14 px-2 sm:px-4 group"
+                className="flex flex-col items-center justify-center py-6 sm:py-10 md:py-14 px-4 sm:px-8 md:px-12 group"
               >
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
                 <span className="font-mono-custom text-[8px] sm:text-xs md:text-sm tracking-[0.1em] sm:tracking-[0.3em] text-cyan-300/70 mt-2 sm:mt-3 text-center">
