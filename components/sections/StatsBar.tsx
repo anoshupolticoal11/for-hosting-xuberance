@@ -30,7 +30,6 @@ function AnimatedCounter({ target, suffix, duration = 2000 }: AnimatedCounterPro
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / duration, 1);
 
-      // Ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.round(eased * target);
 
@@ -74,10 +73,8 @@ export default function StatsBar() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="relative rounded-3xl overflow-hidden"
         >
-          {/* Glass background */}
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/90 via-slate-950/95 to-blue-950/90" />
           <div className="absolute inset-0 border border-cyan-400/15 rounded-3xl" />
-          {/* Inner glow */}
           <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-cyan-500/5" />
 
           <div className="relative z-10 grid grid-cols-3 gap-0 divide-x divide-cyan-500/10">

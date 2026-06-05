@@ -36,11 +36,9 @@ export default function HighlightsGallery() {
 
   return (
     <section id="highlights" className="relative py-24 md:py-32 bg-transparent overflow-hidden">
-      {/* Bioluminescent soft backdrop glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] caustic-glow pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto px-6 md:px-8">
-        {/* Section Header */}
         <div className="text-center mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -54,7 +52,6 @@ export default function HighlightsGallery() {
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto mt-6" />
         </div>
 
-        {/* 4x4 Skew-Animated Grid */}
         <div className="flex items-center justify-center p-4">
           <AnimateGrid
             cards={cards}
@@ -76,7 +73,6 @@ export default function HighlightsGallery() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-60" />
                 </div>
-                {/* Photo Event Title */}
                 <div className="mt-3 text-center">
                   <span className="font-orbitron text-[10px] md:text-xs font-bold text-cyan-400/90 tracking-wider uppercase block truncate">
                     {item.title}

@@ -38,13 +38,11 @@ function SponsorCard({ s }: { s: Sponsor }) {
       onMouseLeave={() => setIsHovered(false)}
       className={`glass-card ${s.accent} w-[320px] md:w-[420px] p-8 rounded-2xl flex flex-col justify-between h-[260px] flex-shrink-0 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300 cursor-pointer`}
     >
-      {/* Rising Liquid Background */}
       <div
         className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 z-0 transition-transform duration-500 ease-out origin-bottom scale-y-0 group-hover:scale-y-100"
         style={{ borderRadius: "inherit" }}
       />
 
-      {/* Floating Bubbles */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {Array.from({ length: 7 }).map((_, i) => (
           <motion.span
@@ -84,7 +82,6 @@ export default function SponsorStream() {
     offset: ["start start", "end end"],
   });
 
-  // Map vertical scroll to horizontal translation (sponsors section is scroll-locked)
   const x = useTransform(scrollYProgress, [0, 1], ["5%", "-65%"]);
 
   const sponsors = [
@@ -128,9 +125,7 @@ export default function SponsorStream() {
 
   return (
     <section ref={containerRef} id="sponsors" className="relative h-[250vh] bg-transparent">
-      {/* Sticky Viewport Container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-center">
-        {/* Section Title */}
         <div className="max-w-7xl mx-auto px-6 md:px-8 w-full mb-12 relative z-20">
           <h2 className="font-orbitron text-3xl md:text-5xl font-black tracking-wider text-slate-100 uppercase">
             SPONSORS
@@ -138,7 +133,6 @@ export default function SponsorStream() {
           <div className="w-16 h-1 bg-cyan-400 mt-4" />
         </div>
 
-        {/* Horizontal Moving Track */}
         <div className="relative w-full z-20 overflow-hidden flex items-center">
           <motion.div style={{ x }} className="flex gap-8 px-6 md:px-32 w-max">
             {sponsors.map((s) => (
@@ -147,7 +141,6 @@ export default function SponsorStream() {
           </motion.div>
         </div>
 
-        {/* Scroll progress indicator */}
         <div className="absolute bottom-12 left-6 right-6 md:left-32 md:right-32 flex items-center z-20">
           <div className="flex-1 h-[2px] bg-cyan-950/40 rounded-full relative overflow-hidden">
             <motion.div

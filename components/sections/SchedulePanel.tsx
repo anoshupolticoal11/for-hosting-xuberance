@@ -48,7 +48,6 @@ export default function SchedulePanel() {
 
   return (
     <div className="glass-card p-8 md:p-12 rounded-2xl relative overflow-hidden h-[360px] flex flex-col justify-between shadow-[0_15px_40px_rgba(0,0,0,0.6)] border border-cyan-500/20">
-      {/* Accent Corner Glow */}
       <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-cyan-500/10 to-transparent pointer-events-none" />
 
       <AnimatePresence mode="wait">
@@ -61,7 +60,6 @@ export default function SchedulePanel() {
           className="flex-1 flex flex-col justify-between"
         >
           <div>
-            {/* Header Time */}
             <div className="mb-6">
               <span className="font-mono-custom text-xs font-bold text-cyan-400 tracking-widest bg-cyan-950/40 border border-cyan-500/30 px-3.5 py-1.5 rounded-md inline-flex items-center gap-2">
                 <Icon className="w-3.5 h-3.5 text-cyan-400" />
@@ -69,7 +67,6 @@ export default function SchedulePanel() {
               </span>
             </div>
 
-            {/* Titles */}
             <h3 className="font-orbitron text-2xl md:text-3xl font-black text-slate-100 tracking-wider">
               {current.title}
             </h3>
@@ -77,7 +74,6 @@ export default function SchedulePanel() {
               {current.subtitle}
             </p>
 
-            {/* Description */}
             <p className="text-slate-400 text-sm md:text-base leading-relaxed font-sans max-w-xl">
               {current.description}
             </p>

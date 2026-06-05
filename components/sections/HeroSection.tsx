@@ -42,7 +42,6 @@ function CountdownTimer() {
       {segments.map((seg, i) => (
         <div key={seg.label} className="flex items-center gap-3 sm:gap-6 md:gap-8">
           <div className="flex flex-col items-center">
-            {/* Animated digit block */}
             <div className="relative overflow-hidden h-14 sm:h-20 md:h-28 flex items-center justify-center">
               <AnimatePresence mode="popLayout">
                 <motion.span
@@ -57,13 +56,11 @@ function CountdownTimer() {
                 </motion.span>
               </AnimatePresence>
             </div>
-            {/* Unit label */}
             <span className="font-mono-custom text-[8px] sm:text-[10px] md:text-xs tracking-[0.25em] text-cyan-300/80 mt-1 md:mt-2">
               {seg.label}
             </span>
           </div>
 
-          {/* Pulsing separator */}
           {i < segments.length - 1 && (
             <motion.span
               animate={{ opacity: [0.3, 1, 0.3] }}
@@ -116,7 +113,6 @@ export default function HeroSection() {
         animate="visible"
         className="relative z-10 max-w-4xl flex flex-col items-center justify-center"
       >
-        {/* Presents Text */}
         <motion.div
           variants={itemVariants}
           className="flex flex-col items-center mt-12 mb-0 text-center"
@@ -129,7 +125,6 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        {/* Logo at the very top */}
         <motion.div
           variants={itemVariants}
           className="relative w-72 h-72 md:w-[26rem] md:h-[26rem] mb-4 -mt-4"
@@ -143,7 +138,6 @@ export default function HeroSection() {
           />
         </motion.div>
 
-        {/* Hero Title (smaller text as requested to prevent wrap) */}
         <motion.h1
           variants={itemVariants}
           className="font-orbitron text-3xl sm:text-5xl md:text-6xl font-black tracking-widest text-slate-100 uppercase"
@@ -153,7 +147,6 @@ export default function HeroSection() {
           </span>
         </motion.h1>
 
-        {/* Seaweed Script decorative subtitle (closer with mt-2) */}
         <motion.div
           variants={itemVariants}
           className="font-seaweed text-3xl sm:text-4xl md:text-5xl text-cyan-200 mt-2 tracking-wider"
@@ -161,7 +154,6 @@ export default function HeroSection() {
           epochs of eminence
         </motion.div>
 
-        {/* Action buttons (placed closer with mt-6) */}
         <motion.div
           variants={itemVariants}
           className="mt-6 flex flex-col sm:flex-row gap-4 justify-center items-center"
@@ -183,7 +175,6 @@ export default function HeroSection() {
 
         </motion.div>
 
-        {/* Countdown Timer (placed closer with mt-10) */}
         <motion.div
           variants={itemVariants}
           className="mt-10 md:mt-12 w-full flex justify-center"
@@ -192,7 +183,6 @@ export default function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Animated Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none z-10">
         <div className="w-[1px] h-12 bg-gradient-to-b from-cyan-400 to-transparent relative overflow-hidden">
           <motion.div
