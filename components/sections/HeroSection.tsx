@@ -121,7 +121,7 @@ export default function HeroSection() {
           variants={itemVariants}
           className="flex flex-col items-center mt-12 mb-0 text-center"
         >
-          <span className="font-orbitron font-black text-xl sm:text-2xl md:text-3xl text-white tracking-[0.15em] uppercase drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+          <span className="font-orbitron font-black text-xl sm:text-2xl md:text-3xl tracking-[0.15em] uppercase bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-cyan-100 to-cyan-400 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] inline-block">
             St. Xavier&apos;s Collegiate School
           </span>
           <span className="font-mono-custom text-xs sm:text-sm md:text-base text-white/80 tracking-[0.3em] uppercase mt-1">
@@ -132,7 +132,7 @@ export default function HeroSection() {
         {/* Logo at the very top */}
         <motion.div
           variants={itemVariants}
-          className="relative w-72 h-72 md:w-[26rem] md:h-[26rem] mb-4 -mt-4 animate-logo-glow"
+          className="relative w-72 h-72 md:w-[26rem] md:h-[26rem] mb-4 -mt-4"
         >
           <Image
             src="/Xub.png"
