@@ -8,7 +8,6 @@ export default function HotkeyListener() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Check for Ctrl + Y
       if (e.ctrlKey && e.key.toLowerCase() === "y") {
         e.preventDefault();
         sessionStorage.setItem("allowMeow", "true");

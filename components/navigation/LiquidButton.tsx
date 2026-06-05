@@ -23,7 +23,6 @@ export default function LiquidButton() {
     };
     checkSession();
 
-    // Listen for custom login/logout events to update the header dynamically
     window.addEventListener("session-change", checkSession);
     return () => window.removeEventListener("session-change", checkSession);
   }, []);

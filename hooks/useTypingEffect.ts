@@ -39,11 +39,10 @@ export function useTypingEffect(lines: string[], speed: number = 20, active: boo
 
       return () => clearTimeout(timer);
     } else {
-      // Line finished, move to next line after a short delay
       const timer = setTimeout(() => {
         setCurrentLineIndex((prev) => prev + 1);
         setCurrentCharIndex(0);
-      }, 350); // Pause between lines
+      }, 350);
 
       return () => clearTimeout(timer);
     }

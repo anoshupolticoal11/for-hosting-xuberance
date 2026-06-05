@@ -7,19 +7,17 @@ export default function DepthWaterBar() {
   const scrollDepth = useAppStore((state) => state.scrollDepth);
   const [displayDepth, setDisplayDepth] = useState(0);
 
-  // Smooth out the depth transition for the telemetry text
   useEffect(() => {
     let animationFrameId: number;
     const startValue = displayDepth;
     const endValue = scrollDepth;
-    const duration = 400; // ms
+    const duration = 400;
     const startTime = performance.now();
 
     const updateDepth = (now: number) => {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
       
-      // Smooth quadratic out easing
       const ease = progress * (2 - progress);
       const currentValue = Math.round(startValue + (endValue - startValue) * ease);
       
@@ -35,12 +33,10 @@ export default function DepthWaterBar() {
     return () => cancelAnimationFrame(animationFrameId);
   }, [scrollDepth]);
 
-  // Max depth is 10,994m
   const percentage = Math.min(Math.max(scrollDepth / 10994, 0), 1);
 
   return (
     <div className="w-full flex flex-col items-center">
-      {/* Inlined keyframes to animate background-position-x for liquid wave movement */}
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes wave-move-1 {
           0% { background-position-x: 0px; }
@@ -58,18 +54,14 @@ export default function DepthWaterBar() {
         }
       `}} />
 
-      {/* Liquid Water Fill Bar Container */}
       <div className="relative w-full h-[8px] bg-slate-950/80 border-b border-cyan-500/10 overflow-hidden shadow-[inset_0_1px_3px_rgba(0,0,0,0.8)]">
-        {/* Filled water area background */}
         <div
           className="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-700 via-cyan-500 to-cyan-400 transition-all duration-300 ease-out"
           style={{ width: `${percentage * 100}%` }}
         >
-          {/* Subtle inner ambient pulse */}
           <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/10" />
         </div>
         
-        {/* Primary animated wave layer */}
         <div 
           className="absolute top-0 bottom-0 left-0 h-full opacity-40 pointer-events-none bg-repeat-x wave-layer-1 transition-all duration-300 ease-out"
           style={{ 
@@ -79,7 +71,6 @@ export default function DepthWaterBar() {
           }}
         />
 
-        {/* Secondary animated wave layer (reverse direction) */}
         <div 
           className="absolute top-0 bottom-0 left-0 h-full opacity-35 pointer-events-none bg-repeat-x wave-layer-2 transition-all duration-300 ease-out"
           style={{ 
@@ -89,14 +80,12 @@ export default function DepthWaterBar() {
           }}
         />
 
-        {/* Glowing tip indicator */}
         <div
           className="absolute top-0 bottom-0 w-[4px] bg-cyan-300 shadow-[0_0_8px_#00f2fe] transition-all duration-300 ease-out"
           style={{ left: `calc(${percentage * 100}% - 2px)` }}
         />
       </div>
 
-      {/* Telemetry Text */}
       <div 
         className={`mt-2 font-mono-custom text-[11px] md:text-xs text-cyan-400 tracking-[0.2em] uppercase drop-shadow-[0_0_8px_rgba(0,242,254,0.3)] transition-opacity duration-500 ${scrollDepth > 0 ? 'opacity-100' : 'opacity-0'}`}
       >

@@ -6,9 +6,9 @@ interface AppState {
   preloaderState: PreloaderState;
   activeSection: string;
   isScrollLocked: boolean;
-  scrollDepth: number; // 0 to 10994
+  scrollDepth: number;
   isTerminalOpen: boolean;
-  activeTimeSlot: string; // e.g. "09:00"
+  activeTimeSlot: string;
   setPreloaderState: (state: PreloaderState) => void;
   setActiveSection: (section: string) => void;
   setScrollLocked: (locked: boolean) => void;

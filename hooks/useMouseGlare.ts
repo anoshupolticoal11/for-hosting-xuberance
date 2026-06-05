@@ -21,9 +21,8 @@ export function useMouseGlare() {
     const xPercent = (x / rect.width) * 100;
     const yPercent = (y / rect.height) * 100;
 
-    // Calculate rotation (-10deg to 10deg)
-    const rotateY = ((x / rect.width) - 0.5) * 12; // tilt horizontally
-    const rotateX = -((y / rect.height) - 0.5) * 12; // tilt vertically
+    const rotateY = ((x / rect.width) - 0.5) * 12;
+    const rotateX = -((y / rect.height) - 0.5) * 12;
 
     setGlareStyle({
       background: `radial-gradient(circle at ${xPercent}% ${yPercent}%, rgba(0, 242, 254, 0.15) 0%, rgba(0, 0, 0, 0) 60%)`,
