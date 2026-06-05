@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { LogOut, FileText, Download, Trash2, Edit3, Plus } from "lucide-react";
 import { allEvents, type EventData } from "@/data/events";
+import * as XLSX from "xlsx";
 
 interface Participant {
   name: string;
@@ -94,35 +95,39 @@ export default function MemberDashboardPage() {
     }
   };
 
-  const handleExportCSV = () => {
+  const handleExportExcel = () => {
     if (registrations.length === 0) {
       alert("You have no registrations to export yet.");
       return;
     }
 
-    let csv = "\uFEFF"; // UTF-8 BOM
+    const rows: any[] = [];
 
     registrations.forEach((reg) => {
-      csv += `EVENT NAME: ${reg.event_title}\n`;
-      csv += "PARTICIPANT NAME,PARTICIPANT NUMBER,CLASS\n";
+      rows.push([`EVENT NAME: ${reg.event_title.toUpperCase()}`]);
+      rows.push(["PARTICIPANT NAME", "PARTICIPANT NUMBER", "CLASS"]);
       reg.participants.forEach((p) => {
-        const name = `"${(p.name || "").replace(/"/g, '""')}"`;
-        const number = `"${(p.number || "").replace(/"/g, '""')}"`;
-        const className = `"${(p.class || "").replace(/"/g, '""')}"`;
-        csv += `${name},${number},${className}\n`;
+        rows.push([
+          p.name.toUpperCase(),
+          p.number,
+          p.class.toUpperCase()
+        ]);
       });
-      csv += "\n";
+      rows.push([]); // blank separator
     });
 
-    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.setAttribute("href", url);
-    link.setAttribute("download", `my_school_registrations.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    const worksheet = XLSX.utils.aoa_to_sheet(rows);
+    
+    // Autowidth columns
+    worksheet["!cols"] = [
+      { wch: 30 },
+      { wch: 25 },
+      { wch: 15 }
+    ];
+
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Registrations");
+    XLSX.writeFile(workbook, `my_school_registrations.xlsx`);
   };
 
   // Helper to check if event is already registered
@@ -178,7 +183,7 @@ export default function MemberDashboardPage() {
 
             {registrations.length > 0 && (
               <button
-                onClick={handleExportCSV}
+                onClick={handleExportExcel}
                 className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-cyan-400 hover:bg-white text-slate-950 font-orbitron font-bold text-xs tracking-widest transition-all duration-300 cursor-pointer shadow-[0_0_15px_rgba(0,242,254,0.2)]"
               >
                 <Download size={14} />
