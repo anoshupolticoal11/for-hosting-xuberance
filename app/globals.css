@@ -407,19 +407,19 @@
   border: 2px solid white;
   border-image: linear-gradient(to right, #00f2fe, #0072ff) 1;
   position: absolute;
-  left: -100px;
+  left: -50px;
   top: 5px;
   transform: translateY(0);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 20;
-  max-width: 140px;
+  max-width: 160px;
 }
 
 .venue-block p {
-  padding: 4px 10px;
+  padding: 6px 14px;
   letter-spacing: 0.05em;
   font-family: var(--font-mono-custom), monospace;
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   text-align: center;
   transform: skewX(15deg);
   color: #00f2fe;
@@ -433,7 +433,7 @@
   border: 2px solid white;
   border-image: linear-gradient(to right, #0dffd6, #0072ff) 1;
   position: absolute;
-  right: -80px;
+  right: -50px;
   bottom: 5px;
   transform: translateY(0);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -441,10 +441,10 @@
 }
 
 .time-block p {
-  padding: 4px 10px;
+  padding: 6px 14px;
   letter-spacing: 0.05em;
-  font-family: var(--font-orbitron), sans-serif;
-  font-size: 0.6rem;
+  font-family: var(--font-mono-custom), monospace;
+  font-size: 0.75rem;
   font-weight: 800;
   text-align: center;
   transform: skewX(15deg);
