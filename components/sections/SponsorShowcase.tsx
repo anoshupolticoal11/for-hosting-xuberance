@@ -118,7 +118,7 @@ function SponsorCard({
     >
       {/* Logo Container */}
       <div
-        className="relative rounded-xl md:rounded-2xl overflow-hidden border border-cyan-500/15 bg-slate-950/40 backdrop-blur-md
+        className="relative rounded-xl md:rounded-2xl overflow-hidden border border-cyan-500/15 bg-slate-950/90
                     group-hover:border-cyan-400/40 group-hover:shadow-[0_0_25px_rgba(0,242,254,0.12)]
                     transition-all duration-500 flex items-center justify-center p-2 md:p-5 w-full"
         style={{

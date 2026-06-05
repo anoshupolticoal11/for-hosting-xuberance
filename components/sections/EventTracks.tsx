@@ -95,7 +95,7 @@ export default function EventTracks() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-orbitron text-3xl md:text-5xl font-black tracking-wider text-slate-100"
           >
@@ -202,7 +202,7 @@ export default function EventTracks() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex justify-center mt-12"
         >
