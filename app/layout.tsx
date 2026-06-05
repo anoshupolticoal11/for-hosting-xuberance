@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Orbitron, Seaweed_Script, JetBrains_Mono } from "next/font/google";
+import { Orbitron, Seaweed_Script, JetBrains_Mono, Lobster_Two } from "next/font/google";
 import "./globals.css";
 import FluidCursorLoader from "@/components/sections/FluidCursorLoader";
 
@@ -22,6 +22,13 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const lobsterTwo = Lobster_Two({
+  weight: ["400", "700"],
+  variable: "--font-lobster-two",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "X-Uberance'26",
   description: "A premium, animated interactive deep sea digital voyage exploring the Mariana Trench and epic epochs of eminence.",
@@ -38,7 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${orbitron.variable} ${seaweedScript.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${orbitron.variable} ${seaweedScript.variable} ${jetbrainsMono.variable} ${lobsterTwo.variable} h-full antialiased`}
     >
       <body className="bg-[#02050e] text-slate-100 min-h-full font-sans overflow-x-clip selection:bg-cyan-500/30 selection:text-cyan-200">
         {children}
