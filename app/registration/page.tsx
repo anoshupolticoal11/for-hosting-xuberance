@@ -13,6 +13,28 @@ export default function RegistrationPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isCheckingSession, setIsCheckingSession] = useState(true);
+
+  useEffect(() => {
+    const checkActiveSession = async () => {
+      try {
+        const res = await fetch("/api/auth/session");
+        const data = await res.json();
+        if (data.success && data.session) {
+          if (data.session.role === "admin") {
+            router.push("/registration/admin");
+          } else {
+            router.push("/registration/member");
+          }
+        } else {
+          setIsCheckingSession(false);
+        }
+      } catch (err) {
+        setIsCheckingSession(false);
+      }
+    };
+    checkActiveSession();
+  }, [router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,6 +68,14 @@ export default function RegistrationPage() {
       setIsLoading(false);
     }
   };
+
+  if (isCheckingSession) {
+    return (
+      <main className="min-h-screen bg-black flex items-center justify-center text-slate-400 font-mono-custom">
+        AUTHENTICATING...
+      </main>
+    );
+  }
 
   return (
     <main className="relative min-h-screen w-full select-none overflow-x-hidden text-slate-100 bg-black">
