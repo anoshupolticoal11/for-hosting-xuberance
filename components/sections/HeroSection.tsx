@@ -117,12 +117,17 @@ export default function HeroSection() {
         className="relative z-10 max-w-4xl flex flex-col items-center justify-center"
       >
         {/* Presents Text */}
-        <motion.p
+        <motion.div
           variants={itemVariants}
-          className="font-mono-custom text-sm sm:text-base md:text-lg text-white tracking-[0.2em] uppercase mt-12 mb-4 text-center"
+          className="flex flex-col items-center mt-12 mb-4 text-center"
         >
-          St. Xavier&apos;s Collegiate School presents
-        </motion.p>
+          <span className="font-mono-custom text-base sm:text-lg md:text-xl text-white tracking-[0.2em] uppercase">
+            St. Xavier&apos;s Collegiate School
+          </span>
+          <span className="font-mono-custom text-xs sm:text-sm md:text-base text-white/80 tracking-[0.3em] uppercase mt-1">
+            PRESENTS
+          </span>
+        </motion.div>
 
         {/* Logo at the very top */}
         <motion.div
