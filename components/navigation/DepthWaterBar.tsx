@@ -97,7 +97,9 @@ export default function DepthWaterBar() {
       </div>
 
       {/* Telemetry Text */}
-      <div className="mt-2 font-mono-custom text-[11px] md:text-xs text-cyan-400 tracking-[0.2em] uppercase drop-shadow-[0_0_8px_rgba(0,242,254,0.3)]">
+      <div 
+        className={`mt-2 font-mono-custom text-[11px] md:text-xs text-cyan-400 tracking-[0.2em] uppercase drop-shadow-[0_0_8px_rgba(0,242,254,0.3)] transition-opacity duration-500 ${scrollDepth > 0 ? 'opacity-100' : 'opacity-0'}`}
+      >
         Depth : <span className="font-bold font-sans text-cyan-100">{displayDepth.toLocaleString()}m</span>
       </div>
     </div>
