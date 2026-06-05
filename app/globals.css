@@ -109,8 +109,7 @@
 
 /* Glassmorphism base cards */
 .glass-card {
-  background: rgba(2, 5, 14, 0.45);
-  backdrop-filter: blur(16px);
+  background: linear-gradient(135deg, rgba(7, 19, 36, 0.95) 0%, rgba(2, 5, 14, 0.98) 100%);
   border: 1px solid rgba(0, 242, 254, 0.15);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
@@ -476,17 +475,4 @@
     right: -10px;
     bottom: -35px;
   }
-}
-
-@keyframes logoGlow {
-  0%, 100% {
-    filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.45));
-  }
-  50% {
-    filter: drop-shadow(0 0 35px rgba(0, 242, 254, 0.85));
-  }
-}
-
-.animate-logo-glow {
-  animation: logoGlow 3s ease-in-out infinite;
 }
