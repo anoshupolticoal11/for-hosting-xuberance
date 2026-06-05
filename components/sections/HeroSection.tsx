@@ -121,7 +121,7 @@ export default function HeroSection() {
           variants={itemVariants}
           className="flex flex-col items-center mt-12 mb-4 text-center"
         >
-          <span className="font-mono-custom text-base sm:text-lg md:text-xl text-white tracking-[0.2em] uppercase">
+          <span className="font-orbitron font-black text-xl sm:text-2xl md:text-3xl text-white tracking-[0.15em] uppercase drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
             St. Xavier&apos;s Collegiate School
           </span>
           <span className="font-mono-custom text-xs sm:text-sm md:text-base text-white/80 tracking-[0.3em] uppercase mt-1">
