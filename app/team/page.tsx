@@ -228,7 +228,7 @@ export default function TeamPage() {
               {...fadeUp}
               className="font-orbitron text-3xl md:text-5xl font-black tracking-widest text-center pt-10 mb-2 uppercase text-slate-100"
             >
-              Teachers Core Committee
+              TEACHERS&apos; CORE COMMITTEE
             </motion.h2>
             {teacherRows.map((row, rowIdx) => (
               <div

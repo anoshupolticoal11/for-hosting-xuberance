@@ -116,10 +116,18 @@ export default function HeroSection() {
         animate="visible"
         className="relative z-10 max-w-4xl flex flex-col items-center justify-center"
       >
-        {/* Logo at the very top (larger as requested, pushed upwards with mb-4) */}
+        {/* Presents Text */}
+        <motion.p
+          variants={itemVariants}
+          className="font-mono-custom text-xs sm:text-sm md:text-base text-cyan-200/80 tracking-[0.2em] uppercase mb-4 text-center"
+        >
+          St. Xavier&apos;s Collegiate School presents
+        </motion.p>
+
+        {/* Logo at the very top */}
         <motion.div
           variants={itemVariants}
-          className="relative w-72 h-72 md:w-[26rem] md:h-[26rem] mb-4 animate-logo-glow"
+          className="relative w-72 h-72 md:w-[26rem] md:h-[26rem] mb-4 mt-2 animate-logo-glow"
         >
           <Image
             src="/Xub.png"
