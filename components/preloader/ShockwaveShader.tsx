@@ -24,7 +24,7 @@ export default function ShockwaveShader({ active }: ShockwaveShaderProps) {
 
     let rippleRadius = 0;
     const maxRadius = Math.max(width, height) * 0.8;
-    const speed = 25; // growth speed
+    const speed = 25;
     let opacity = 1;
 
     const handleResize = () => {
@@ -44,7 +44,6 @@ export default function ShockwaveShader({ active }: ShockwaveShaderProps) {
 
         if (opacity < 0) opacity = 0;
 
-        // Draw multiple expanding rings
         const centerX = width / 2;
         const centerY = height / 2;
 

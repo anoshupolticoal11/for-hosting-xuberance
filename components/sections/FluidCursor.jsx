@@ -1,5 +1,4 @@
 "use client";
-// @ts-nocheck
 import { useEffect, useRef } from "react";
 
 function FluidCursor({
@@ -1012,7 +1011,6 @@ function FluidCursor({
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("touchend", onTouchEnd);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     SIM_RESOLUTION,
     DYE_RESOLUTION,

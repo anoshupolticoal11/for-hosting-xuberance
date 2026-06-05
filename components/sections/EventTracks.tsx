@@ -14,13 +14,11 @@ export default function EventTracks() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const totalEvents = allEvents.length;
 
-  // Wrap index for infinite looping
   const wrapIndex = useCallback(
     (i: number) => ((i % totalEvents) + totalEvents) % totalEvents,
     [totalEvents]
   );
 
-  // Go to next / previous
   const goNext = useCallback(() => {
     setActiveIndex((prev) => wrapIndex(prev + 1));
   }, [wrapIndex]);
@@ -29,24 +27,20 @@ export default function EventTracks() {
     setActiveIndex((prev) => wrapIndex(prev - 1));
   }, [wrapIndex]);
 
-  // Auto-scroll every 3 seconds
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(goNext, 3000);
     return () => clearInterval(interval);
   }, [isPaused, goNext]);
 
-  // Keyboard arrow support
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Visible indices: show 3 cards centered on activeIndex
   const visibleCount = 3;
   const visibleIndices: number[] = [];
   for (let offset = -Math.floor(visibleCount / 2); offset <= Math.floor(visibleCount / 2); offset++) {
     visibleIndices.push(wrapIndex(activeIndex + offset));
   }
 
-  // Scale and opacity for each position (-2, -1, 0, 1, 2)
   const getCardStyle = (offset: number, eventIdx: number) => {
     const isHovered = hoveredIndex === eventIdx;
     const absOffset = Math.abs(offset);
@@ -60,12 +54,10 @@ export default function EventTracks() {
       opacity = 1;
       zIndex = 30;
     } else if (hoveredIndex !== null) {
-      // Something else is hovered — shrink
       scale = absOffset === 0 ? 0.88 : 0.7 - absOffset * 0.06;
       opacity = absOffset === 0 ? 0.7 : 0.4 - absOffset * 0.05;
       zIndex = 5 - absOffset;
     } else {
-      // Normal state — center biggest
       if (absOffset === 0) {
         scale = 1.08;
         opacity = 1;
@@ -86,11 +78,9 @@ export default function EventTracks() {
 
   return (
     <section id="tracks" className="relative py-28 md:py-36 bg-transparent overflow-hidden">
-      {/* Decorative background glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] caustic-glow pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -104,7 +94,6 @@ export default function EventTracks() {
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto mt-6" />
         </div>
 
-        {/* Carousel */}
         <div
           ref={containerRef}
           className="relative w-full"
@@ -124,7 +113,6 @@ export default function EventTracks() {
             }
           }}
         >
-          {/* Arrow Buttons */}
           <button
             onClick={goPrev}
             className="absolute left-0 md:left-2 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyan-950/60 border border-cyan-400/30 backdrop-blur-md flex items-center justify-center text-cyan-300 hover:text-white hover:bg-cyan-800/60 hover:border-cyan-400/60 transition-all duration-300 cursor-pointer shadow-[0_0_15px_rgba(0,242,254,0.15)]"
@@ -140,7 +128,6 @@ export default function EventTracks() {
             <ChevronRight size={22} />
           </button>
 
-          {/* Cards Row */}
           <div className="flex items-center justify-center gap-4 md:gap-6 py-8 px-12 md:px-16 min-h-[420px]">
             {visibleIndices.map((eventIdx, posIdx) => {
               const offset = posIdx - Math.floor(visibleCount / 2);
@@ -160,10 +147,6 @@ export default function EventTracks() {
                     ease: [0.25, 0.46, 0.45, 0.94],
                   }}
                   className="w-[220px] sm:w-[260px] md:w-[300px] shrink-0 origin-center hidden sm:block"
-                  style={{
-                    // Hide outer cards on smaller screens
-                    display: Math.abs(offset) > 1 ? undefined : undefined,
-                  }}
                   onMouseEnter={() => setHoveredIndex(eventIdx)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   onClick={() => setActiveIndex(eventIdx)}
@@ -173,7 +156,6 @@ export default function EventTracks() {
               );
             })}
 
-            {/* Mobile: only show center card */}
             <div className="block sm:hidden w-[300px]">
               <EventCard {...allEvents[activeIndex]} />
             </div>
@@ -182,7 +164,6 @@ export default function EventTracks() {
 
         </div>
 
-        {/* Dot indicators */}
         <div className="flex justify-center gap-1.5 mt-4">
           {allEvents.slice(0, Math.min(totalEvents, 20)).map((_, i) => (
             <button
@@ -198,7 +179,6 @@ export default function EventTracks() {
           ))}
         </div>
 
-        {/* View More Events Button */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

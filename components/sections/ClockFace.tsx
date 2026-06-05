@@ -17,7 +17,6 @@ export default function ClockFace() {
     { label: "18:00", angle: 180, title: "ABYSSAL EXPLORATION" },
   ];
 
-  // Map pointer angle
   const currentSlot = slots.find((s) => s.label === activeTimeSlot) || slots[0];
   const displayedAngle = dragAngle !== null ? dragAngle : currentSlot.angle;
 
@@ -29,14 +28,12 @@ export default function ClockFace() {
     const dx = clientX - cx;
     const dy = clientY - cy;
 
-    // Angle relative to positive y-axis (top = 0 deg, right = 90 deg, etc.)
     let rad = Math.atan2(dx, -dy);
     let deg = rad * (180 / Math.PI);
     if (deg < 0) deg += 360;
 
     setDragAngle(deg);
 
-    // Find the closest slot
     let minDiff = Infinity;
     let closest = slots[0];
     slots.forEach((slot) => {
@@ -72,7 +69,7 @@ export default function ClockFace() {
 
     const handleEnd = () => {
       setIsDragging(false);
-      setDragAngle(null); // Snap back to nearest active slot angle
+      setDragAngle(null);
     };
 
     window.addEventListener("mousemove", handleMove);
@@ -99,10 +96,8 @@ export default function ClockFace() {
       }}
       className="relative w-72 h-72 md:w-[400px] md:h-[400px] flex items-center justify-center select-none cursor-grab active:cursor-grabbing"
     >
-      {/* Astrolabe Background Glowing Ring */}
       <div className="absolute inset-0 rounded-full border border-cyan-500/10 pointer-events-none" />
 
-      {/* Rotating Mechanical Compass Outer Ring */}
       <motion.svg
         animate={{ rotate: 360 }}
         transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
@@ -111,8 +106,7 @@ export default function ClockFace() {
       >
         <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 3" />
         <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" strokeWidth="0.2" />
-        {/* Ticks */}
-        {Array.from({ length: 12 }).map((_, i) => {
+        {slots.map((_, i) => {
           const angle = (i * 30 * Math.PI) / 180;
           const x1 = 50 + Math.cos(angle) * 44;
           const y1 = 50 + Math.sin(angle) * 44;
@@ -122,7 +116,6 @@ export default function ClockFace() {
         })}
       </motion.svg>
 
-      {/* Counter-Rotating Middle Astrolabe Ring */}
       <motion.svg
         animate={{ rotate: -360 }}
         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
@@ -134,24 +127,20 @@ export default function ClockFace() {
         <path d="M 50 4 L 50 12 M 50 88 L 50 96 M 4 50 L 12 50 M 88 50 L 96 50" stroke="currentColor" strokeWidth="0.8" />
       </motion.svg>
 
-      {/* Interactive Dial Pointer Needle */}
       <motion.div
         animate={{ rotate: displayedAngle }}
         transition={isDragging ? { type: "tween", duration: 0.05 } : { type: "spring", stiffness: 120, damping: 15 }}
         className="absolute w-full h-full pointer-events-none flex items-center justify-center z-10"
       >
         <div className="relative w-1.5 h-full flex flex-col items-center">
-          {/* Glowing Pointer Arrow */}
           <div className="absolute top-4 w-4 h-4 bg-cyan-400 border border-white rotate-45 rounded-[2px] shadow-[0_0_15px_#00f2fe] z-10" />
           <div className="absolute top-6 w-[2px] h-[40%] bg-gradient-to-b from-cyan-400 to-transparent" />
-          {/* Center Pivot */}
           <div className="absolute top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-cyan-400 bg-slate-950 flex items-center justify-center shadow-[0_0_20px_rgba(0,242,254,0.5)]">
             <div className="w-3 h-3 rounded-full bg-cyan-400 animate-pulse" />
           </div>
         </div>
       </motion.div>
 
-      {/* Time Slots (Interactive Nodes) */}
       {slots.map((slot) => {
         const rad = (slot.angle * Math.PI) / 180;
         const distance = 42;
@@ -164,7 +153,7 @@ export default function ClockFace() {
           <button
             key={slot.label}
             onClick={(e) => {
-              e.stopPropagation(); // Prevent container click trigger
+              e.stopPropagation();
               setActiveTimeSlot(slot.label);
             }}
             className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center group focus:outline-none z-20 cursor-pointer"
@@ -173,7 +162,6 @@ export default function ClockFace() {
               top: `${y}%`,
             }}
           >
-            {/* Active/Inactive states */}
             <div
               className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-500 ${
                 isActive
@@ -185,7 +173,6 @@ export default function ClockFace() {
                 {slot.label.split(":")[0]}
               </span>
             </div>
-            {/* Time label */}
             <span
               className={`absolute top-14 whitespace-nowrap font-mono-custom text-[9px] tracking-widest px-2 py-0.5 rounded border bg-slate-950/90 transition-all duration-300 ${
                 isActive

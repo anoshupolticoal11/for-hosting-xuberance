@@ -30,7 +30,6 @@ interface CategoryEventsClientProps {
 export default function CategoryEventsClient({ category }: CategoryEventsClientProps) {
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Resolve category name and events list
   let activeEvents: EventData[] = [];
   let categoryLabel = "";
 
@@ -45,7 +44,6 @@ export default function CategoryEventsClient({ category }: CategoryEventsClientP
     categoryLabel = "OFF-STAGE EVENTS";
   }
 
-  // Filter events based on search query
   const filteredEvents = activeEvents.filter((event) => {
     const query = searchQuery.toLowerCase().trim();
     return (
@@ -84,9 +82,7 @@ export default function CategoryEventsClient({ category }: CategoryEventsClientP
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />
 
-        {/* Safe padding below Navbar */}
         <div className="max-w-7xl mx-auto w-full px-6 md:px-8 pt-24 md:pt-28 flex flex-col">
-          {/* Back Button below Navbar on the top left */}
           <div className="pt-4 pb-6">
             <Link
               href="/events"
@@ -100,7 +96,6 @@ export default function CategoryEventsClient({ category }: CategoryEventsClientP
             </Link>
           </div>
 
-          {/* Section Header */}
           <div className="text-center pb-10">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -126,7 +121,6 @@ export default function CategoryEventsClient({ category }: CategoryEventsClientP
             </motion.p>
           </div>
 
-          {/* Halo Search Bar */}
           <div className="relative z-0 flex w-full flex-col items-center justify-center mb-10">
             <HaloSearch
               placeholder="SEARCH FOR AN EVENT..."
@@ -135,7 +129,6 @@ export default function CategoryEventsClient({ category }: CategoryEventsClientP
             />
           </div>
 
-          {/* Events Grid */}
           <div className="pb-28 flex-grow">
             <AnimatePresence mode="wait">
               {filteredEvents.length > 0 ? (

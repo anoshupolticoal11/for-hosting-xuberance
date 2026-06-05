@@ -37,8 +37,8 @@ export default function EventCard({
     const xPercent = (x / rect.width) * 100;
     const yPercent = (y / rect.height) * 100;
 
-    const rotateY = ((x / rect.width) - 0.5) * 12; // tilt horizontally
-    const rotateX = -((y / rect.height) - 0.5) * 12; // tilt vertically
+    const rotateY = ((x / rect.width) - 0.5) * 12;
+    const rotateX = -((y / rect.height) - 0.5) * 12;
 
     el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
     el.style.transition = "transform 0.05s ease-out";
@@ -92,19 +92,16 @@ export default function EventCard({
       }}
       className="glass-card relative p-8 rounded-2xl overflow-hidden flex flex-col justify-between h-[320px] cursor-pointer group"
     >
-      {/* Glare Overlay */}
       <div
         ref={glareRef}
         className="absolute inset-0 pointer-events-none transition-opacity duration-300 opacity-0 group-hover:opacity-100 z-20"
       />
 
-      {/* Rising Liquid Background */}
       <div
         className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 z-0 transition-transform duration-500 ease-out origin-bottom scale-y-0 group-hover:scale-y-100"
         style={{ borderRadius: "inherit" }}
       />
 
-      {/* Floating Bubbles */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {Array.from({ length: 8 }).map((_, i) => (
           <motion.span
@@ -118,12 +115,9 @@ export default function EventCard({
         ))}
       </div>
 
-      {/* Top border accent */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-30 group-hover:opacity-100 transition-opacity duration-500 z-10" />
 
-      {/* Content */}
       <div className="relative z-10 pt-2 flex flex-col h-full">
-        {/* Title row */}
         <div className="mb-1">
           <h3 className="font-orbitron text-xl font-black tracking-wider text-slate-100 group-hover:text-slate-950 transition-colors duration-500">
             {title}
@@ -140,12 +134,10 @@ export default function EventCard({
           )}
         </div>
 
-        {/* Description */}
         <p className="font-sans text-sm text-slate-400 leading-relaxed group-hover:text-slate-900 transition-colors duration-500 mt-2 flex-grow">
           {description}
         </p>
 
-        {/* Bottom row: participants */}
         <div className="flex items-center justify-between mt-4 gap-2 flex-wrap">
           {participants && (
             <div className="flex items-center gap-1.5 text-xs font-mono-custom text-cyan-400/70 group-hover:text-slate-900/80 transition-colors duration-500">
