@@ -196,7 +196,7 @@ export default function SponsorShowcase() {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="font-orbitron text-base md:text-lg font-bold text-cyan-400 tracking-[0.15em] uppercase"
+                  className="font-orbitron text-base md:text-lg font-bold text-cyan-400 tracking-[0.15em] uppercase text-center"
                 >
                   FLAGSHIP EVENT SPONSORS
                 </motion.span>
@@ -205,23 +205,23 @@ export default function SponsorShowcase() {
                     <SponsorCard
                       key={`flagship-${i}`}
                       sponsor={sponsor}
-                      tier={{ title: "FLAGSHIP EVENT SPONSORS", sponsors: [], logoSize: 90 }}
+                      tier={{ title: "FLAGSHIP EVENT SPONSORS", sponsors: [], logoSize: 110 }}
                       label=""
                       index={i}
                     />
                   ))}
                 </div>
               </div>
-
+ 
               <div className="w-3/4 h-px bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent" />
-
+ 
               <div className="flex flex-col items-center gap-5 w-full">
                 <motion.span
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.15 }}
-                  className="font-orbitron text-base md:text-lg font-bold text-cyan-400 tracking-[0.15em] uppercase"
+                  className="font-orbitron text-base md:text-lg font-bold text-cyan-400 tracking-[0.15em] uppercase text-center"
                 >
                   EVENT SPONSORS
                 </motion.span>
@@ -230,7 +230,7 @@ export default function SponsorShowcase() {
                     <SponsorCard
                       key={`event-${i}`}
                       sponsor={sponsor}
-                      tier={{ title: "EVENT SPONSORS", sponsors: [], logoSize: 80 }}
+                      tier={{ title: "EVENT SPONSORS", sponsors: [], logoSize: 110 }}
                       label=""
                       index={i}
                     />

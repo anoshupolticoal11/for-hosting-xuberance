@@ -115,19 +115,19 @@ export default function HeroSection() {
       >
         <motion.div
           variants={itemVariants}
-          className="flex flex-col items-center mt-12 mb-0 text-center"
+          className="flex flex-col items-center mt-12 mb-0 text-center px-4"
         >
-          <span className="font-orbitron font-black text-xl sm:text-2xl md:text-3xl tracking-[0.15em] uppercase bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-cyan-100 to-cyan-400 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] inline-block">
+          <span className="font-orbitron font-black text-xs sm:text-2xl md:text-3xl tracking-[0.15em] uppercase bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-cyan-100 to-cyan-400 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] inline-block max-w-full">
             St. Xavier&apos;s Collegiate School
           </span>
-          <span className="font-mono-custom text-xs sm:text-sm md:text-base text-white/80 tracking-[0.3em] uppercase mt-1">
+          <span className="font-mono-custom text-[10px] sm:text-sm md:text-base text-white/80 tracking-[0.3em] uppercase mt-1">
             PRESENTS
           </span>
         </motion.div>
 
         <motion.div
           variants={itemVariants}
-          className="relative w-72 h-72 md:w-[26rem] md:h-[26rem] mb-4 -mt-4"
+          className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[26rem] md:h-[26rem] mb-4 -mt-4"
         >
           <Image
             src="/Xub.png"
@@ -140,7 +140,7 @@ export default function HeroSection() {
 
         <motion.h1
           variants={itemVariants}
-          className="font-orbitron text-3xl sm:text-5xl md:text-6xl font-black tracking-widest text-slate-100 uppercase"
+          className="font-orbitron text-2xl sm:text-5xl md:text-6xl font-black tracking-widest text-slate-100 uppercase px-4"
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-cyan-100 to-cyan-400 drop-shadow-[0_0_30px_rgba(0,242,254,0.25)]">
             X-UBERANCE&apos;26
@@ -149,7 +149,7 @@ export default function HeroSection() {
 
         <motion.div
           variants={itemVariants}
-          className="font-seaweed text-3xl sm:text-4xl md:text-5xl text-cyan-200 mt-2 tracking-wider"
+          className="font-seaweed text-xl sm:text-4xl md:text-5xl text-cyan-200 mt-2 tracking-wider"
         >
           epochs of eminence
         </motion.div>
