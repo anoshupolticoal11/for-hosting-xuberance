@@ -82,8 +82,8 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="flex items-center space-x-4">
-            <div className="hidden lg:block">
+          <div className="flex items-center space-x-3 md:space-x-4">
+            <div className="block">
               <LiquidButton />
             </div>
 
