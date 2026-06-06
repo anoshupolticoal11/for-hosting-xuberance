@@ -56,7 +56,7 @@ export default function Navbar() {
             : "bg-transparent py-5"
           }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between">
           <div className="flex items-center">
             <Link
               href="/#hero"
@@ -82,7 +82,7 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="flex items-center space-x-3 md:space-x-4">
+          <div className="flex items-center space-x-2 md:space-x-4">
             <div className="block">
               <LiquidButton />
             </div>
