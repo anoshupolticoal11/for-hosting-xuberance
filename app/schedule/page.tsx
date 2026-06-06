@@ -15,19 +15,19 @@ interface ScheduleItem {
 }
 
 const day1Schedule: ScheduleItem[] = [
-  { event: "Registration", venue: "Front desk", time: "7:30 - 8:30" },
+  { event: "REGISTRATION", venue: "Front Desk", time: "7:30 - 8:30" },
   { event: "OPENING CEREMONY", venue: "Primary Section Stage", time: "9:00 - 10:00" },
   { event: "X-PULL", subtitle: "Tug Of War (Boys)", venue: "Senior School Main field", time: "11:00 - 4:00" },
-  { event: "X-SCRIPT", subtitle: "Creative Writing", venue: "Reading room", time: "11:00 - 2:00" },
-  { event: "X-RAPPORTEUR", subtitle: "Vlogging & Journalism", venue: "School campus", time: "10:30 - 6:00" },
+  { event: "X-SCRIPT", subtitle: "Creative Writing", venue: "Reading Room", time: "11:00 - 2:00" },
+  { event: "X-RAPPORTEUR", subtitle: "Vlogging & Journalism", venue: "School Campus", time: "10:30 - 6:00" },
   { event: "X-FIFA", subtitle: "Fifa", venue: "Fr. Bruylants Hall", time: "10:30 - 2:30" },
   { event: "X-TORKOBITOROKO", subtitle: "Bengali Debate", venue: "Fr. Bruylants Hall", time: "3:00 - 5:30" },
   { event: "X-SPRAY", subtitle: "Spray Painting", venue: "Primary School Gymnasium", time: "11:00 - 1:30" },
   { event: "X-ACOUSTIC", subtitle: "Western Music", venue: "Primary Section Stage", time: "4:00 - 6:30" },
   { event: "X-PROSHNOTTOR", subtitle: "Bengali Quiz", venue: "Fr. Sassel Hall", time: "11:00 - 1:00" },
   { event: "X-AVRITTI", subtitle: "Hindi Elocution", venue: "Fr. Sassel Hall", time: "2:00 - 3:30" },
-  { event: "X-PONG", subtitle: "Table Tennis (Boys & Girls)", venue: "Games room", time: "10:30 - 1:30" },
-  { event: "X-HACK", subtitle: "Hackathon", venue: "Computer lab", time: "10:30 - 3:30" },
+  { event: "X-PONG", subtitle: "Table Tennis (Boys & Girls)", venue: "Games Room", time: "10:30 - 1:30" },
+  { event: "X-HACK", subtitle: "Hackathon", venue: "Computer Lab", time: "10:30 - 3:30" },
   { event: "X-INNOVATE", subtitle: "Shark Tank", venue: "Xavier Hall", time: "11:00 - 2:30" },
   { event: "X-PUZZLE", subtitle: "Puzzle Game", venue: "Big Parlour", time: "10:30 - 12:30" },
   { event: "X-COOK", subtitle: "Fireless Cooking", venue: "Big Parlour", time: "1:30 - 3:30" },
@@ -35,11 +35,11 @@ const day1Schedule: ScheduleItem[] = [
 ];
 
 const day2Schedule: ScheduleItem[] = [
-  { event: "Registration", venue: "Front Desk", time: "7:30 - 8:00" },
+  { event: "REGISTRATION", venue: "Front Desk", time: "7:30 - 8:00" },
   { event: "X-PAINTING", subtitle: "Sketching", venue: "Art Room", time: "10:30 - 1:00" },
   { event: "X-GOAL", subtitle: "Football (Boys)", venue: "Senior School Main Field", time: "8:30 - 1:30" },
   { event: "X-PULL", subtitle: "Tug Of War (Girls)", venue: "Senior School Main Field", time: "2:00 - 4:00" },
-  { event: "X-GOAL", subtitle: "Football (Girls)", venue: "Senior School Back field", time: "9:00 - 1:00" },
+  { event: "X-GOAL", subtitle: "Football (Girls)", venue: "Senior School Back Field", time: "9:00 - 1:00" },
   { event: "X-HACK", subtitle: "Hackathon", venue: "Computer Lab", time: "8:30 - 4:00" },
   { event: "X-MATE", subtitle: "Chess", venue: "Big Parlour", time: "9:00 - 11:00" },
   { event: "X-PRESS", subtitle: "Poster Making", venue: "Big Parlour", time: "1:00 - 3:00" },
@@ -60,13 +60,13 @@ const day2Schedule: ScheduleItem[] = [
 ];
 
 const day3Schedule: ScheduleItem[] = [
-  { event: "Registration", venue: "Front Desk", time: "7:30 - 8:00" },
+  { event: "REGISTRATION", venue: "Front Desk", time: "7:30 - 8:00" },
   { event: "X-HIBIT", subtitle: "Display of Science Models", venue: "Physics Laboratory", time: "8:30 - 12:30" },
   { event: "X-WICKET", subtitle: "Cricket", venue: "Senior School Main Field", time: "8:30 - 2:30" },
   { event: "X-KHO", subtitle: "Kho Kho (Girls)", venue: "Senior School Back Field", time: "8:30 - 12:30" },
   { event: "X-HOP", subtitle: "Dance Face Off", venue: "Primary School Gymnasium", time: "8:30 - 10:30" },
   { event: "X-NATAK", subtitle: "Stage Play", venue: "Primary Section Stage", time: "11:00 - 2:00" },
-  { event: "X-DIGI", subtitle: "Digital Art", venue: "Art room", time: "8:30 - 12:00" },
+  { event: "X-DIGI", subtitle: "Digital Art", venue: "Art Room", time: "8:30 - 12:00" },
   { event: "X-RAPPORTEUR", subtitle: "Vlogging & Journalism", venue: "Reading Room", time: "10:00 - 12:00" },
   { event: "X-KOBITA", subtitle: "Bengali poem", venue: "Fr. Bruylants Hall", time: "8:30 - 12:30" },
   { event: "X-ALAAP", subtitle: "Hindi Antakshari", venue: "Xavier Hall", time: "8:30 - 10:30" },
@@ -195,18 +195,18 @@ export default function SchedulePage() {
                   >
                     {/* Left cyan accent bar */}
                     <div className="absolute left-0 top-0 bottom-0 w-[4px] bg-gradient-to-b from-cyan-400 to-blue-500" />
-                    
+
                     {/* Top row: Time and Venue */}
                     <div className="flex items-center justify-between gap-4 pl-2">
                       <span className="font-orbitron text-xs font-extrabold text-cyan-400 tracking-wider">
                         {item.time}
                       </span>
-                      <span 
+                      <span
                         className="font-mono-custom text-[10px] text-cyan-300/80 bg-cyan-950/45 px-2.5 py-1 rounded border border-cyan-500/10 uppercase tracking-wider text-right text-wrap leading-tight max-w-[65%]"
                         dangerouslySetInnerHTML={{ __html: item.venue }}
                       />
                     </div>
-                    
+
                     {/* Event Title + Subtitle */}
                     <h3 className="font-orbitron text-sm sm:text-base font-black tracking-wider text-slate-100 pl-2 uppercase">
                       {item.event}
