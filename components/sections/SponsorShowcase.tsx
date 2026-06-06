@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const PLACEHOLDER_LOGO = "/sponsors/itc.jpeg";
 
@@ -95,41 +96,80 @@ function SponsorCard({
   tier,
   label,
   index,
+  isMobile,
 }: {
   sponsor: Sponsor;
   tier: SponsorTier;
   label: string;
   index: number;
+  isMobile: boolean;
 }) {
+  const getResponsiveSizes = () => {
+    if (!isMobile) {
+      return {
+        logoSize: tier.logoSize,
+        cardWidth: tier.logoSize + 50,
+        cardHeight: tier.logoSize + 30,
+      };
+    }
+ 
+    // Mobile layouts (width < 768px):
+    const isFlagshipOrEventSponsor = label === "" || label === "FLAGSHIP EVENT SPONSORS" || label === "EVENT SPONSORS";
+ 
+    if (isFlagshipOrEventSponsor) {
+      // Flagship & Event Sponsors: slightly smaller than partners
+      return {
+        logoSize: 46,
+        cardWidth: 62,
+        cardHeight: 52,
+      };
+    } else {
+      // Partners (Title, Co, Gate, Media, Hydration, etc.)
+      let size = 54;
+      if (tier.logoSize >= 160) size = 90;
+      else if (tier.logoSize >= 130) size = 76;
+      else if (tier.logoSize >= 110) size = 68;
+ 
+      return {
+        logoSize: size,
+        cardWidth: size + 16,
+        cardHeight: size + 12,
+      };
+    }
+  };
+ 
+  const { logoSize, cardWidth, cardHeight } = getResponsiveSizes();
+ 
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
-      className="flex flex-col items-center gap-2 md:gap-4 group min-w-[80px] sm:min-w-0 flex-1"
-      style={{ maxWidth: tier.logoSize + 50 }}
+      className="flex flex-col items-center gap-1.5 md:gap-4 group min-w-0"
+      style={{ maxWidth: cardWidth }}
     >
       <div
         className="relative rounded-xl md:rounded-2xl overflow-hidden border border-cyan-500/15 bg-slate-950/90
                     group-hover:border-cyan-400/40 group-hover:shadow-[0_0_25px_rgba(0,242,254,0.12)]
-                    transition-all duration-500 flex items-center justify-center p-2 md:p-5 w-full"
+                    transition-all duration-500 flex items-center justify-center p-1.5 md:p-5 w-full"
         style={{
-          maxWidth: tier.logoSize + 50,
-          aspectRatio: `${tier.logoSize + 50} / ${tier.logoSize + 30}`,
+          width: cardWidth,
+          height: cardHeight,
+          aspectRatio: `${cardWidth} / ${cardHeight}`,
         }}
       >
         <Image
           src={sponsor.logo}
           alt={sponsor.name}
-          width={tier.logoSize}
-          height={tier.logoSize}
+          width={logoSize}
+          height={logoSize}
           className="object-contain group-hover:scale-105 transition-transform duration-500 w-full h-full"
         />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/25 to-transparent" />
       </div>
       {label && (
-        <span className="font-orbitron text-[8px] sm:text-sm md:text-base font-semibold text-cyan-400 tracking-[0.1em] md:tracking-[0.15em] uppercase text-center leading-tight">
+        <span className="font-orbitron text-[7px] sm:text-sm md:text-base font-semibold text-cyan-400 tracking-[0.05em] sm:tracking-[0.15em] uppercase text-center leading-tight max-w-[80px] sm:max-w-none">
           {label}
         </span>
       )}
