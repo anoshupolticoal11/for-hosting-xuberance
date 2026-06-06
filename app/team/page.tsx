@@ -233,12 +233,12 @@ export default function TeamPage() {
             {teacherRows.map((row, rowIdx) => (
               <div
                 key={rowIdx}
-                className="grid grid-cols-3 justify-items-center items-start gap-x-4 md:gap-x-16 gap-y-10 w-full max-w-[80vw]"
+                className="grid grid-cols-1 md:grid-cols-3 justify-items-center items-start gap-x-4 md:gap-x-16 gap-y-10 w-full max-w-[80vw]"
               >
                 {row.map((teacher, idx) => (
                   <div
                     key={teacher.name}
-                    className={row.length === 1 ? "col-start-2 w-full" : "w-full"}
+                    className={row.length === 1 ? "md:col-start-2 w-full" : "w-full"}
                   >
                     <HologramCard
                       name={teacher.name}

@@ -109,7 +109,7 @@ export default function SchedulePage() {
         <div className="flex-grow pt-32 pb-24 px-6 max-w-4xl mx-auto w-full flex flex-col items-center">
 
           {/* Day Buttons Header */}
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 mb-12">
+          <div className="flex flex-nowrap items-center justify-center gap-3 sm:gap-6 md:gap-8 mb-12 w-full">
             {[1, 2, 3].map((day) => (
               <button
                 key={day}
@@ -202,7 +202,7 @@ export default function SchedulePage() {
                         {item.time}
                       </span>
                       <span 
-                        className="font-mono-custom text-[10px] text-cyan-300/80 bg-cyan-950/45 px-2.5 py-1 rounded border border-cyan-500/10 uppercase tracking-wider max-w-[60%] truncate"
+                        className="font-mono-custom text-[10px] text-cyan-300/80 bg-cyan-950/45 px-2.5 py-1 rounded border border-cyan-500/10 uppercase tracking-wider text-right text-wrap leading-tight max-w-[65%]"
                         dangerouslySetInnerHTML={{ __html: item.venue }}
                       />
                     </div>
