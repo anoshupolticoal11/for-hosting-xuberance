@@ -205,7 +205,7 @@ export default function SponsorShowcase() {
                     <SponsorCard
                       key={`flagship-${i}`}
                       sponsor={sponsor}
-                      tier={{ title: "FLAGSHIP EVENT SPONSORS", sponsors: [], logoSize: 110 }}
+                      tier={{ title: "FLAGSHIP EVENT SPONSORS", sponsors: [], logoSize: 90 }}
                       label=""
                       index={i}
                     />
@@ -230,7 +230,7 @@ export default function SponsorShowcase() {
                     <SponsorCard
                       key={`event-${i}`}
                       sponsor={sponsor}
-                      tier={{ title: "EVENT SPONSORS", sponsors: [], logoSize: 110 }}
+                      tier={{ title: "EVENT SPONSORS", sponsors: [], logoSize: 90 }}
                       label=""
                       index={i}
                     />
