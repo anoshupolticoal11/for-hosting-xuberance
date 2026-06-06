@@ -107,7 +107,7 @@ function SponsorCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
-      className="flex flex-col items-center gap-2 md:gap-4 group min-w-0 flex-1"
+      className="flex flex-col items-center gap-2 md:gap-4 group min-w-[80px] sm:min-w-0 flex-1"
       style={{ maxWidth: tier.logoSize + 50 }}
     >
       <div
@@ -200,7 +200,7 @@ export default function SponsorShowcase() {
                 >
                   FLAGSHIP EVENT SPONSORS
                 </motion.span>
-                <div className="flex flex-wrap justify-center gap-8 md:gap-14 lg:gap-20">
+                <div className="flex flex-wrap justify-center gap-3 sm:gap-8 md:gap-14 lg:gap-20">
                   {flagshipEventSponsors.map((sponsor, i) => (
                     <SponsorCard
                       key={`flagship-${i}`}
@@ -225,7 +225,7 @@ export default function SponsorShowcase() {
                 >
                   EVENT SPONSORS
                 </motion.span>
-                <div className="flex flex-wrap justify-center gap-8 md:gap-14 lg:gap-20">
+                <div className="flex flex-wrap justify-center gap-3 sm:gap-8 md:gap-14 lg:gap-20">
                   {eventSponsors.map((sponsor, i) => (
                     <SponsorCard
                       key={`event-${i}`}

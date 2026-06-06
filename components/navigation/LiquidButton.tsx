@@ -41,7 +41,7 @@ export default function LiquidButton() {
   return (
     <Link href={href} className="block">
       <LiquidWrapper
-        className="px-4 py-2 md:px-8 md:py-3 rounded-full border-2 border-cyan-400 font-orbitron text-[10px] md:text-xs lg:text-sm font-bold tracking-widest text-cyan-400 group-hover:text-slate-950 shadow-[0_0_15px_rgba(0,242,254,0.25)] hover:shadow-[0_0_30px_rgba(0,242,254,0.6)] cursor-pointer"
+        className="px-2.5 py-1.5 sm:px-4 sm:py-2 md:px-8 md:py-3 rounded-full border-2 border-cyan-400 font-orbitron text-[9px] sm:text-xs lg:text-sm font-bold tracking-widest text-cyan-400 group-hover:text-slate-950 shadow-[0_0_15px_rgba(0,242,254,0.25)] hover:shadow-[0_0_30px_rgba(0,242,254,0.6)] cursor-pointer whitespace-nowrap"
       >
         {label}
       </LiquidWrapper>
