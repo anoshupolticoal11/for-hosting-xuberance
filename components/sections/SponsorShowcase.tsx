@@ -178,6 +178,15 @@ function SponsorCard({
 }
 
 export default function SponsorShowcase() {
+  const [isMobile, setIsMobile] = useState(false);
+ 
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+ 
   return (
     <section id="sponsors" className="relative py-20 md:py-28 bg-transparent overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] caustic-glow pointer-events-none -z-10 opacity-40" />
@@ -222,6 +231,7 @@ export default function SponsorShowcase() {
                         tier={tier}
                         label={tier.title}
                         index={rowIdx * 2 + tIdx + sIdx}
+                        isMobile={isMobile}
                       />
                     ))
                   )}
@@ -248,6 +258,7 @@ export default function SponsorShowcase() {
                       tier={{ title: "FLAGSHIP EVENT SPONSORS", sponsors: [], logoSize: 90 }}
                       label=""
                       index={i}
+                      isMobile={isMobile}
                     />
                   ))}
                 </div>
@@ -273,6 +284,7 @@ export default function SponsorShowcase() {
                       tier={{ title: "EVENT SPONSORS", sponsors: [], logoSize: 90 }}
                       label=""
                       index={i}
+                      isMobile={isMobile}
                     />
                   ))}
                 </div>
