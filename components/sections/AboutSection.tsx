@@ -106,10 +106,16 @@ export default function AboutSection() {
                 </h3>
                 <div className="space-y-4 font-sans text-sm md:text-base text-slate-300 leading-relaxed">
                   <p>
-                    St. Xavier&apos;s Collegiate School takes immense pride in presenting the latest edition of its technology festival, X-Uberance &apos;26. Celebrating a rich history of student-led innovation, we invite you to witness the fusion of creativity, deep-sea research, and computational challenges.
+                    X-UBERANCE is a symbol of our Xaverian Spirit. This tradition of engaging in entertaining and joyous events, X-UBERANCE is an Inter-School Fest hosted by The St. Xavier&apos;s Collegiate School, Kolkata. Since its inauguration, each edition has been more competitive and engaging than the previous.
                   </p>
                   <p>
-                    X-Uberance has consistently grown bigger and better with each passing year, encouraging excellence, problem-solving, and ideas that extend far beyond standard classrooms.
+                    Each and every edition of X-UBERANCE brings to us a new environment and atmosphere of fun, frolic, excitement and festivity, through which every participant &mdash; be it the students, the teachers, or the guests &mdash; all find a way to showcase their skills and talents. The beauty of X-UBERANCE is that even after competing with each other, the representatives from several schools leave with a new sense of unity and fraternity.
+                  </p>
+                  <p>
+                    X-UBERANCE 2026 is an opportunity to be a part of one of the largest fests in Kolkata, with our aim to congregate students of multiple institutions across three days of intense competition and sportsmanship about the most trending events among the generation.
+                  </p>
+                  <p>
+                    We are proud to say that X-UBERANCE has only grown and has become a much-awaited event every year. We welcome you with our arms wide open for this year and for the years to come.
                   </p>
                 </div>
               </motion.div>
