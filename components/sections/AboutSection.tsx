@@ -101,7 +101,8 @@ export default function AboutSection() {
                 className="lg:col-span-7 space-y-5"
               >
                 <h3 className="font-orbitron text-xl md:text-2xl font-black text-cyan-400 tracking-wider">
-                  ABOUT X-UBERANCE&apos;26
+                  ABOUT <br className="block sm:hidden" />
+                  <span className="whitespace-nowrap">X-UBERANCE&apos;26</span>
                 </h3>
                 <div className="space-y-4 font-sans text-sm md:text-base text-slate-300 leading-relaxed">
                   <p>
