@@ -49,7 +49,7 @@ export default function RootLayout({
       className={`${orbitron.variable} ${seaweedScript.variable} ${jetbrainsMono.variable} ${lobsterTwo.variable} h-full antialiased`}
     >
       <head>
-        <meta name="color-scheme" content="dark" />
+        <meta name="color-scheme" content="only light" />
       </head>
       <body className="bg-[#02050e] text-slate-100 min-h-full font-sans overflow-x-clip selection:bg-cyan-500/30 selection:text-cyan-200">
         {children}
