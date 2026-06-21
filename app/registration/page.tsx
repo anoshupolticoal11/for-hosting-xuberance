@@ -7,6 +7,7 @@ import Preloader from "@/components/preloader/Preloader";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
+
 export default function RegistrationPage() {
   const router = useRouter();
   const [username, setUsername] = useState("");
@@ -96,6 +97,8 @@ export default function RegistrationPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full max-w-md p-8 md:p-10 rounded-3xl border border-zinc-800 bg-zinc-950/80 backdrop-blur-2xl"
           >
+
+
             <div className="text-center mb-8">
               <h2 className="font-orbitron text-2xl md:text-3xl font-black tracking-widest text-slate-100">
                 PORTAL LOGIN

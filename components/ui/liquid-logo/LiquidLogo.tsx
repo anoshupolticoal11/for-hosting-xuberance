@@ -117,9 +117,9 @@ export default function LiquidLogo({
 
   useEffect(() => {
     let active = true;
-    setProcessing(true);
 
     const init = async () => {
+      setProcessing(true);
       try {
         const { imageData: imgData } = await parseLogoImage(imageUrl);
         if (!active) return;
@@ -245,10 +245,12 @@ export default function LiquidLogo({
         cleanUpTextureRef.current();
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [imageUrl]);
 
   useEffect(() => {
     updateUniforms();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [edge, patternBlur, patternScale, refraction, liquid, speed]);
 
   return (

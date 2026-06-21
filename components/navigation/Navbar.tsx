@@ -29,11 +29,11 @@ export default function Navbar() {
 
   const navItems = [
     { name: "HOME", href: "/#hero" },
-    { name: "EVENTS", href: "/events" },
-    { name: "MENTORS", href: "/mentors" },
     { name: "ABOUT", href: "/#about" },
+    { name: "EVENTS", href: "/events" },
     { name: "SCHEDULE", href: "/schedule" },
-    { name: "TEAM", href: "/team" },
+    { name: "GALLERY", href: "/#highlights" },
+    { name: "MENTORS", href: "/mentors" },
   ];
 
   const handleScrollTo = (e: React.MouseEvent, href: string) => {

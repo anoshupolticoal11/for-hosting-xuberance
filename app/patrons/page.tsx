@@ -7,21 +7,27 @@ import FooterDeck from "@/components/sections/FooterDeck";
 import VideoBackground from "@/components/sections/VideoBackground";
 import Preloader from "@/components/preloader/Preloader";
 
-const mentors = [
-  {
-    name: "Fr. Roshan Tirkey S.J",
-    title: "Principal",
-    image: "/patrons/principal.png",
-  },
+interface Mentor {
+  name: string;
+  title: string;
+  image: string;
+}
+
+const mentors: Mentor[] = [
   {
     name: "Fr. Vivien Andrew",
     title: "Vice Principal",
-    image: "/placeholders/placeholder.jpg",
+    image: "/mentors/adm-vice-principal.jpg",
+  },
+  {
+    name: "Fr. Roshan Tirkey S.J",
+    title: "Principal",
+    image: "/mentors/adm-principal.jpg",
   },
   {
     name: "Mrs. Soma Gomes",
     title: "Vice Principal, Primary School",
-    image: "/patrons/soma-gomes.png",
+    image: "/mentors/adm-vp-junior.jpg",
   },
   {
     name: "Mr. Santanu Jana",
@@ -120,8 +126,8 @@ export default function PatronsPage() {
                 transition={{ duration: 0.7, delay: idx * 0.1 }}
                 className="group flex flex-col items-center text-center"
               >
-                {/* Holographic image container */}
-                <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-xl overflow-hidden mb-6 shadow-[0_0_30px_rgba(0,255,255,0.15)] group-hover:shadow-[0_0_50px_rgba(0,255,255,0.3)] transition-shadow duration-500">
+                {/* Holographic image container using native 139x174 size */}
+                <div className="relative w-[139px] h-[174px] rounded-xl overflow-hidden mb-6 shadow-[0_0_30px_rgba(0,255,255,0.15)] group-hover:shadow-[0_0_50px_rgba(0,255,255,0.3)] transition-shadow duration-500">
                   <Image
                     src={mentor.image}
                     alt={mentor.name}

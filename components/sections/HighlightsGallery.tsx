@@ -112,7 +112,7 @@ export default function HighlightsGallery() {
   };
 
   return (
-    <section id="highlights" className="relative py-20 md:py-32 bg-transparent overflow-hidden">
+    <section id="highlights" className="relative pt-20 md:pt-32 pb-6 md:pb-10 bg-transparent overflow-hidden">
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] caustic-glow pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto px-6 md:px-8">

@@ -10,11 +10,13 @@ export function useTypingEffect(lines: string[], speed: number = 20, active: boo
 
   useEffect(() => {
     if (!active) {
-      setDisplayedLines([]);
-      setCurrentLineIndex(0);
-      setCurrentCharIndex(0);
-      setIsCompleted(false);
-      return;
+      const resetTimer = setTimeout(() => {
+        setDisplayedLines([]);
+        setCurrentLineIndex(0);
+        setCurrentCharIndex(0);
+        setIsCompleted(false);
+      }, 0);
+      return () => clearTimeout(resetTimer);
     }
 
     if (currentLineIndex >= lines.length) {

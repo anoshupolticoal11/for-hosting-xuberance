@@ -6,7 +6,7 @@ import "./AnimateGrid.css";
 interface CardItem {
   logo: string;
   title?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 interface AnimateGridProps {

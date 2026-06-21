@@ -17,6 +17,7 @@ import ScrollFadeIn from "@/components/sections/ScrollFadeIn";
 // Load client components dynamically with SSR disabled to prevent server-side window/document errors
 const VideoBackground = dynamic(() => import("@/components/sections/VideoBackground"), { ssr: false });
 const HighlightsGallery = dynamic(() => import("@/components/sections/HighlightsGallery"), { ssr: false });
+const TrueFocus = dynamic(() => import("@/components/sections/TrueFocus"), { ssr: false });
 
 export default function Home() {
   const setScrollDepth = useAppStore((state) => state.setScrollDepth);
@@ -30,9 +31,9 @@ export default function Home() {
 
       if (maxScroll <= 0) return;
 
-      const percent = scrollY / maxScroll;
-      // Map percentage to Challenger Deep depth (0m - 10,994m)
-      const depth = Math.round(percent * 10994);
+      const percent = Math.min(Math.max(scrollY / maxScroll, 0), 1);
+      // Map percentage to Challenger Deep depth (1m - 10,994m)
+      const depth = Math.round(percent * (10994 - 1)) + 1;
       setScrollDepth(depth);
     };
 
@@ -65,6 +66,18 @@ export default function Home() {
             <StatsBar />
           </ScrollFadeIn>
 
+          {/* True Focus Vertical Dates Animation */}
+          <div className="pt-0 pb-10 md:pb-16 flex flex-col items-center justify-center bg-transparent">
+            <TrueFocus
+              sentence="10TH JULY|11TH JULY|12TH JULY"
+              manualMode={false}
+              blurAmount={5}
+              borderColor="#5227FF"
+              glowColor="rgba(82, 39, 255, 0.4)"
+              animationDuration={0.5}
+              pauseBetweenAnimations={1}
+            />
+          </div>
 
           <ScrollFadeIn delay={0.1}>
             <AboutSection />

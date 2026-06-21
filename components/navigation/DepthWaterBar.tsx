@@ -1,37 +1,9 @@
 "use client";
 
 import { useAppStore } from "@/store/useAppStore";
-import { useEffect, useState } from "react";
 
 export default function DepthWaterBar() {
   const scrollDepth = useAppStore((state) => state.scrollDepth);
-  const [displayDepth, setDisplayDepth] = useState(0);
-
-  useEffect(() => {
-    let animationFrameId: number;
-    const startValue = displayDepth;
-    const endValue = scrollDepth;
-    const duration = 400;
-    const startTime = performance.now();
-
-    const updateDepth = (now: number) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      
-      const ease = progress * (2 - progress);
-      const currentValue = Math.round(startValue + (endValue - startValue) * ease);
-      
-      setDisplayDepth(currentValue);
-
-      if (progress < 1) {
-        animationFrameId = requestAnimationFrame(updateDepth);
-      }
-    };
-
-    animationFrameId = requestAnimationFrame(updateDepth);
-
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [scrollDepth]);
 
   const percentage = Math.min(Math.max(scrollDepth / 10994, 0), 1);
 
@@ -89,7 +61,7 @@ export default function DepthWaterBar() {
       <div 
         className={`mt-2 font-mono-custom text-[11px] md:text-xs text-cyan-400 tracking-[0.2em] uppercase drop-shadow-[0_0_8px_rgba(0,242,254,0.3)] transition-opacity duration-500 ${scrollDepth > 0 ? 'opacity-100' : 'opacity-0'}`}
       >
-        Depth : <span className="font-bold font-sans text-cyan-100">{displayDepth.toLocaleString()}m</span>
+        Depth : <span className="font-bold font-sans text-cyan-100">{scrollDepth.toLocaleString()}m</span>
       </div>
     </div>
   );
