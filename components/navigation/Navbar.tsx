@@ -105,29 +105,31 @@ export default function Navbar() {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="absolute top-full inset-x-0 z-30 md:hidden bg-slate-950/95 border-b border-cyan-500/25 backdrop-blur-2xl shadow-[0_20px_40px_rgba(0,0,0,0.8)] px-6 py-8 flex flex-col space-y-6"
+              className="overflow-hidden md:hidden bg-slate-950/95 border-b border-cyan-500/25 backdrop-blur-2xl shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
             >
-              <nav className="flex flex-col space-y-4 items-center">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => {
-                      handleScrollTo(e, item.href);
-                      setMobileMenuOpen(false);
-                    }}
-                    className="font-orbitron text-base font-bold tracking-widest text-cyan-100 hover:text-cyan-400 py-2 transition-colors duration-300"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </nav>
-              <div className="flex justify-center pt-4 border-t border-cyan-500/10">
-                <LiquidButton />
+              <div className="px-6 py-6 flex flex-col space-y-5">
+                <nav className="flex flex-col space-y-4 items-center">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={(e) => {
+                        handleScrollTo(e, item.href);
+                        setMobileMenuOpen(false);
+                      }}
+                      className="font-orbitron text-base font-bold tracking-widest text-cyan-100 hover:text-cyan-400 py-2 transition-colors duration-300"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </nav>
+                <div className="flex justify-center pt-4 border-t border-cyan-500/10">
+                  <LiquidButton />
+                </div>
               </div>
             </motion.div>
           )}

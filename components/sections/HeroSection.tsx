@@ -38,11 +38,11 @@ function CountdownTimer() {
   ];
 
   return (
-    <div className="flex items-center justify-center gap-1.5 xs:gap-3 sm:gap-6 md:gap-8 bg-slate-950/40 px-3 py-3 sm:px-6 sm:py-5 rounded-3xl border border-cyan-500/10 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.5)]">
+    <div className="flex items-center justify-center gap-2 xs:gap-3 sm:gap-6 md:gap-8 bg-slate-950/40 px-4 py-4 sm:px-6 sm:py-5 rounded-3xl border border-cyan-500/10 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.5)]">
       {segments.map((seg, i) => (
-        <div key={seg.label} className="flex items-center gap-1.5 xs:gap-3 sm:gap-6 md:gap-8">
+        <div key={seg.label} className="flex items-center gap-2 xs:gap-3 sm:gap-6 md:gap-8">
           <div className="flex flex-col items-center">
-            <div className="relative overflow-hidden h-10 xs:h-14 sm:h-20 md:h-28 flex items-center justify-center">
+            <div className="relative overflow-hidden h-12 xs:h-14 sm:h-20 md:h-28 flex items-center justify-center">
               <AnimatePresence mode="popLayout">
                 <motion.span
                   key={seg.value}
@@ -50,13 +50,13 @@ function CountdownTimer() {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -30, opacity: 0 }}
                   transition={{ type: "spring", stiffness: 120, damping: 14 }}
-                  className="font-orbitron text-2xl xs:text-4xl sm:text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-cyan-100 to-cyan-400 drop-shadow-[0_0_20px_rgba(0,242,254,0.45)] tabular-nums"
+                  className="font-orbitron text-3xl xs:text-4xl sm:text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-cyan-100 to-cyan-400 drop-shadow-[0_0_20px_rgba(0,242,254,0.45)] tabular-nums"
                 >
                   {seg.value}
                 </motion.span>
               </AnimatePresence>
             </div>
-            <span className="font-mono-custom text-[7px] xs:text-[9px] sm:text-[10px] md:text-xs tracking-[0.25em] text-cyan-300/80 mt-1 md:mt-2">
+            <span className="font-mono-custom text-[8px] xs:text-[9px] sm:text-[10px] md:text-xs tracking-[0.25em] text-cyan-300/80 mt-1 md:mt-2">
               {seg.label}
             </span>
           </div>
@@ -65,7 +65,7 @@ function CountdownTimer() {
             <motion.span
               animate={{ opacity: [0.3, 1, 0.3] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="font-orbitron text-lg xs:text-2xl sm:text-4xl md:text-6xl font-black text-cyan-400/60 self-start mt-1 xs:mt-2 sm:mt-4 md:mt-6"
+              className="font-orbitron text-xl xs:text-2xl sm:text-4xl md:text-6xl font-black text-cyan-400/60 self-start mt-1.5 xs:mt-2 sm:mt-4 md:mt-6"
             >
               :
             </motion.span>
