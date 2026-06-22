@@ -151,7 +151,7 @@ export default function EventTracks() {
                   onMouseLeave={() => setHoveredIndex(null)}
                   onClick={() => setActiveIndex(eventIdx)}
                 >
-                  <EventCard {...event} href={`/repsprofile/${event.title.toLowerCase().replace(/-/g, "")}.png`} />
+                  <EventCard {...event} href={`/events/profile/${event.title.toLowerCase().replace(/-/g, "")}`} />
                 </motion.div>
               );
             })}
