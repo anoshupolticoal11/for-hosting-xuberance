@@ -72,8 +72,8 @@ export default function Home() {
               sentence="10TH JULY|11TH JULY|12TH JULY"
               manualMode={false}
               blurAmount={5}
-              borderColor="#5227FF"
-              glowColor="rgba(82, 39, 255, 0.4)"
+              borderColor="#0066FF"
+              glowColor="rgba(0, 102, 255, 0.4)"
               animationDuration={0.5}
               pauseBetweenAnimations={1}
             />
