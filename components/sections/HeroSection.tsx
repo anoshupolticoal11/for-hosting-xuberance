@@ -115,7 +115,7 @@ export default function HeroSection() {
       >
         <motion.div
           variants={itemVariants}
-          className="flex flex-col items-center mt-12 mb-0 text-center px-4"
+          className="flex flex-col items-center mt-12 mb-0 text-center px-4 z-10"
         >
           <span className="font-orbitron font-black text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-normal sm:tracking-[0.15em] uppercase bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-cyan-100 to-cyan-400 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] inline-block max-w-full whitespace-nowrap">
             St. Xavier&apos;s Collegiate School
@@ -127,7 +127,7 @@ export default function HeroSection() {
 
         <motion.div
           variants={itemVariants}
-          className="relative w-72 h-72 sm:w-96 sm:h-96 md:w-[32rem] md:h-[32rem] mb-4 -mt-4 drop-shadow-[0_20px_40px_rgba(0,242,254,0.3)]"
+          className="relative w-80 h-80 sm:w-[28rem] sm:h-[28rem] md:w-[38rem] md:h-[38rem] -mb-16 sm:-mb-20 md:-mb-28 -mt-10 sm:-mt-14 md:-mt-20 drop-shadow-[0_20px_40px_rgba(0,242,254,0.3)]"
         >
           <Image
             src="/Xub.png"
@@ -140,7 +140,7 @@ export default function HeroSection() {
 
         <motion.h1
           variants={itemVariants}
-          className="font-orbitron text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-black tracking-widest text-slate-100 uppercase px-4 whitespace-nowrap"
+          className="font-orbitron text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-black tracking-widest text-slate-100 uppercase px-4 whitespace-nowrap z-10"
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-cyan-100 to-cyan-400 drop-shadow-[0_0_30px_rgba(0,242,254,0.25)]">
             X-UBERANCE&apos;26
