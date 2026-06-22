@@ -16,7 +16,7 @@ interface Mentor {
 const mentors: Mentor[] = [
   {
     name: "Fr. Vivien Andrew",
-    title: "Vice Principal",
+    title: "Vice Principal, Secondary Section",
     image: "/mentors/adm-vice-principal.jpg",
   },
   {
