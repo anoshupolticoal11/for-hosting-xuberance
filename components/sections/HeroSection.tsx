@@ -149,7 +149,7 @@ export default function HeroSection() {
 
         <motion.div
           variants={itemVariants}
-          className="font-seaweed text-xl sm:text-4xl md:text-8xl text-cyan-200 mt-2 tracking-wider whitespace-nowrap"
+          className="font-seaweed text-4xl sm:text-5xl md:text-4xl text-cyan-200 mt-2 tracking-wider whitespace-nowrap"
         >
           epochs of eminence
         </motion.div>
