@@ -149,7 +149,7 @@ export default function HeroSection() {
 
         <motion.div
           variants={itemVariants}
-          className="font-seaweed text-2xl sm:text-5xl md:text-7xl text-cyan-200 mt-2 tracking-wider whitespace-nowrap"
+          className="font-seaweed text-xl sm:text-4xl md:text-8xl text-cyan-200 mt-2 tracking-wider whitespace-nowrap"
         >
           epochs of eminence
         </motion.div>
@@ -160,7 +160,7 @@ export default function HeroSection() {
         >
           <Link
             href="/registration"
-            className="liquid-hover-btn px-8 py-3 rounded-full bg-cyan-400 text-slate-950 font-orbitron font-bold text-xs md:text-sm tracking-widest hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer shadow-[0_0_20px_rgba(0,242,254,0.4)] flex items-center justify-center"
+            className="liquid-hover-btn px-8 py-3 rounded-full border border-cyan-500/20 bg-cyan-950/20 font-orbitron font-bold text-xs md:text-sm tracking-widest text-white hover:bg-cyan-950/40 hover:border-cyan-400/50 hover:shadow-[0_0_30px_rgba(0,242,254,0.4)] hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-sm cursor-pointer shadow-[0_0_15px_rgba(0,242,254,0.2)] flex items-center justify-center"
           >
             REGISTER NOW
           </Link>

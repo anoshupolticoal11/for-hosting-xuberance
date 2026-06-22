@@ -67,7 +67,7 @@ export default function Home() {
           </ScrollFadeIn>
 
           {/* True Focus Vertical Dates Animation */}
-          <div className="pt-0 pb-10 md:pb-16 flex flex-col items-center justify-center bg-transparent">
+          <div className="pt-10 md:pt-36 pb-2 md:pb-4 flex flex-col items-center justify-center bg-transparent">
             <TrueFocus
               sentence="10TH JULY|11TH JULY|12TH JULY"
               manualMode={false}
