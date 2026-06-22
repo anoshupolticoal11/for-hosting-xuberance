@@ -127,7 +127,7 @@ export default function HeroSection() {
 
         <motion.div
           variants={itemVariants}
-          className="relative w-80 h-80 sm:w-[28rem] sm:h-[28rem] md:w-[38rem] md:h-[38rem] -mb-16 sm:-mb-20 md:-mb-28 -mt-10 sm:-mt-14 md:-mt-20 drop-shadow-[0_20px_40px_rgba(0,242,254,0.3)]"
+          className="relative w-80 h-80 sm:w-[28rem] sm:h-[28rem] md:w-[38rem] md:h-[38rem] -mb-8 sm:-mb-12 md:-mb-16 -mt-10 sm:-mt-14 md:-mt-20 drop-shadow-[0_20px_40px_rgba(0,242,254,0.3)]"
         >
           <Image
             src="/Xub.png"
