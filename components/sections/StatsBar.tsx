@@ -57,7 +57,7 @@ function AnimatedCounter({ target, suffix, duration = 2000 }: AnimatedCounterPro
 }
 
 const stats = [
-  { value: 3, label: "DAYS", suffix: "+" },
+  { value: 3, label: "DAYS", suffix: "" },
   { value: 40, label: "EVENTS", suffix: "+" },
   { value: 2000, label: "PARTICIPANTS", suffix: "+" },
 ];
