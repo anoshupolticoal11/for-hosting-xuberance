@@ -105,7 +105,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative h-screen flex flex-col justify-center items-center text-center px-6 md:px-8 bg-transparent pt-20 pb-16 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-8 bg-transparent pt-20 pb-16 overflow-hidden"
     >
       <motion.div
         variants={containerVariants}
@@ -127,7 +127,7 @@ export default function HeroSection() {
 
         <motion.div
           variants={itemVariants}
-          className="relative w-[50vmin] h-[50vmin] sm:w-[45vmin] sm:h-[45vmin] md:w-[40vmin] md:h-[40vmin] lg:w-[42vmin] lg:h-[42vmin] -mb-[3vh] sm:-mb-[4vh] md:-mb-[5vh] -mt-[2vh] sm:-mt-[3vh] md:-mt-[4vh] drop-shadow-[0_20px_40px_rgba(0,242,254,0.3)]"
+          className="relative w-80 h-80 sm:w-[28rem] sm:h-[28rem] md:w-[38rem] md:h-[38rem] -mb-8 sm:-mb-12 md:-mb-16 -mt-10 sm:-mt-14 md:-mt-20 drop-shadow-[0_20px_40px_rgba(0,242,254,0.3)]"
         >
           <Image
             src="/Xub.png"
@@ -177,7 +177,7 @@ export default function HeroSection() {
 
         <motion.div
           variants={itemVariants}
-          className="mt-[2vh] md:mt-[3vh] w-full flex justify-center"
+          className="mt-10 md:mt-12 w-full flex justify-center"
         >
           <CountdownTimer />
         </motion.div>
