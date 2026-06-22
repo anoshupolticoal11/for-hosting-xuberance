@@ -10,6 +10,7 @@ interface EventCardProps {
   icon: LucideIcon;
   participants?: string;
   tags?: string[];
+  href?: string;
 }
 
 export default function EventCard({
@@ -20,6 +21,7 @@ export default function EventCard({
   icon: Icon,
   participants,
   tags,
+  href,
 }: EventCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -81,7 +83,7 @@ export default function EventCard({
     },
   };
 
-  return (
+  const cardContent = (
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
@@ -149,4 +151,14 @@ export default function EventCard({
       </div>
     </div>
   );
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className="block">
+        {cardContent}
+      </a>
+    );
+  }
+
+  return cardContent;
 }

@@ -9,7 +9,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import StatsBar from "@/components/sections/StatsBar";
 import AboutSection from "@/components/sections/AboutSection";
 import EventTracks from "@/components/sections/EventTracks";
-import SponsorShowcase from "@/components/sections/SponsorShowcase";
+
 
 import FooterDeck from "@/components/sections/FooterDeck";
 import ScrollFadeIn from "@/components/sections/ScrollFadeIn";
@@ -83,9 +83,7 @@ export default function Home() {
             <AboutSection />
           </ScrollFadeIn>
 
-          <ScrollFadeIn delay={0.1}>
-            <SponsorShowcase />
-          </ScrollFadeIn>
+
 
           <ScrollFadeIn delay={0.1}>
             <EventTracks />

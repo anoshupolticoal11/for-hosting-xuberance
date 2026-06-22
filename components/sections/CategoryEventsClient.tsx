@@ -140,15 +140,20 @@ export default function CategoryEventsClient({ category }: CategoryEventsClientP
                   exit="hidden"
                   className="flex flex-wrap justify-center gap-8 w-full"
                 >
-                  {filteredEvents.map((event, i) => (
-                    <motion.div
-                      key={event.title}
-                      variants={itemVariants}
-                      className="w-full sm:w-[calc((100%-32px)/2)] lg:w-[calc((100%-64px)/3)]"
-                    >
-                      <EventCard {...event} />
-                    </motion.div>
-                  ))}
+                  {filteredEvents.map((event, i) => {
+                    // Convert event title like "X-GOAL" to "xgoal" to match the repsprofile PNG filename
+                    const slug = event.title.toLowerCase().replace(/-/g, "");
+                    const profileHref = `/repsprofile/${slug}.png`;
+                    return (
+                      <motion.div
+                        key={event.title}
+                        variants={itemVariants}
+                        className="w-full sm:w-[calc((100%-32px)/2)] lg:w-[calc((100%-64px)/3)]"
+                      >
+                        <EventCard {...event} href={profileHref} />
+                      </motion.div>
+                    );
+                  })}
                 </motion.div>
               ) : (
                 <motion.div
