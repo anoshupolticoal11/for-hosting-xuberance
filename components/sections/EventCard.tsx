@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { LucideIcon, Users } from "lucide-react";
 import { useState, useRef } from "react";
+import Link from "next/link";
 
 interface EventCardProps {
   title: string;
@@ -154,9 +155,9 @@ export default function EventCard({
 
   if (href) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="block">
+      <Link href={href} className="block">
         {cardContent}
-      </a>
+      </Link>
     );
   }
 
