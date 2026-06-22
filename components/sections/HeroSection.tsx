@@ -105,7 +105,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-8 bg-transparent pt-20 pb-16 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-8 bg-transparent pt-20 pb-4 overflow-hidden"
     >
       <motion.div
         variants={containerVariants}
@@ -149,7 +149,7 @@ export default function HeroSection() {
 
         <motion.div
           variants={itemVariants}
-          className="font-seaweed text-xl sm:text-4xl md:text-5xl text-cyan-200 mt-2 tracking-wider whitespace-nowrap"
+          className="font-seaweed text-2xl sm:text-5xl md:text-7xl text-cyan-200 mt-2 tracking-wider whitespace-nowrap"
         >
           epochs of eminence
         </motion.div>

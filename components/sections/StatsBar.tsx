@@ -64,7 +64,7 @@ const stats = [
 
 export default function StatsBar() {
   return (
-    <section className="relative py-12 md:py-16 bg-transparent overflow-hidden">
+    <section className="relative py-4 md:py-6 bg-transparent overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
