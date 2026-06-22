@@ -157,7 +157,7 @@ export default function EventTracks() {
             })}
 
             <div className="block sm:hidden w-[300px]">
-              <EventCard {...allEvents[activeIndex]} href={`/repsprofile/${allEvents[activeIndex].title.toLowerCase().replace(/-/g, "")}.png`} />
+              <EventCard {...allEvents[activeIndex]} href={`/events/profile/${allEvents[activeIndex].title.toLowerCase().replace(/-/g, "")}`} />
             </div>
           </div>
 
