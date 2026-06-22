@@ -105,7 +105,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-8 bg-transparent pt-20 pb-4 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-8 bg-transparent pt-20 pb-16 overflow-hidden"
     >
       <motion.div
         variants={containerVariants}
