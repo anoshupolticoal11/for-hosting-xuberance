@@ -6,6 +6,7 @@ import FooterDeck from "@/components/sections/FooterDeck";
 import VideoBackground from "@/components/sections/VideoBackground";
 import Preloader from "@/components/preloader/Preloader";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 interface ScheduleItem {
   event: string;
@@ -161,11 +162,37 @@ export default function SchedulePage() {
 
                         {/* Event Name + Subtitle */}
                         <div className="flex flex-col items-center" style={{ transform: "skewX(15deg)" }}>
-                          <h2 style={{ transform: "none" }}>{item.event}</h2>
+                          <h2 style={{ transform: "none" }} className="flex items-center gap-1.5 justify-center">
+                            {item.event === "X-FIFA" ? (
+                              <>
+                                <span>X-</span>
+                                <Image
+                                  src="/fifa.png"
+                                  alt="Triangle Circle Square"
+                                  width={60}
+                                  height={18}
+                                  className="h-[16px] md:h-[20px] w-auto object-contain brightness-0 invert inline-block align-middle"
+                                />
+                              </>
+                            ) : (
+                              item.event
+                            )}
+                          </h2>
                           {item.subtitle && (
-                            <span className="font-mono-custom text-xs md:text-sm text-cyan-400/70 tracking-wider -mt-1">
-                              {item.subtitle}
-                            </span>
+                            item.event === "X-FIFA" ? (
+                              <Image
+                                src="/fifa.png"
+                                alt="Triangle Circle Square"
+                                width={50}
+                                height={14}
+                                className="h-[12px] w-auto object-contain brightness-0 invert opacity-70 mt-0.5"
+                                style={{ transform: "none" }}
+                              />
+                            ) : (
+                              <span className="font-mono-custom text-xs md:text-sm text-cyan-400/70 tracking-wider -mt-1" style={{ fontFamily: "'Clash Display', sans-serif" }}>
+                                {item.subtitle}
+                              </span>
+                            )
                           )}
                         </div>
 
@@ -207,13 +234,38 @@ export default function SchedulePage() {
                     </div>
 
                     {/* Event Title + Subtitle */}
-                    <h3 className="font-orbitron text-sm sm:text-base font-black tracking-wider text-slate-100 pl-2 uppercase">
-                      {item.event}
+                    <h3 className="font-orbitron text-sm sm:text-base font-black tracking-wider text-slate-100 pl-2 uppercase flex items-center gap-1">
+                      {item.event === "X-FIFA" ? (
+                        <>
+                          <span>X-</span>
+                          <Image
+                            src="/fifa.png"
+                            alt="Triangle Circle Square"
+                            width={60}
+                            height={16}
+                            className="h-[14px] w-auto object-contain brightness-0 invert inline-block align-middle"
+                          />
+                        </>
+                      ) : (
+                        item.event
+                      )}
                     </h3>
                     {item.subtitle && (
-                      <p className="font-mono-custom text-xs text-cyan-400/70 tracking-wider pl-2 -mt-2">
-                        {item.subtitle}
-                      </p>
+                      item.event === "X-FIFA" ? (
+                        <div className="pl-2 -mt-2">
+                          <Image
+                            src="/fifa.png"
+                            alt="Triangle Circle Square"
+                            width={50}
+                            height={12}
+                            className="h-[11px] w-auto object-contain brightness-0 invert opacity-70 inline-block align-middle"
+                          />
+                        </div>
+                      ) : (
+                        <p className="font-mono-custom text-xs text-cyan-400/70 tracking-wider pl-2 -mt-2" style={{ fontFamily: "'Clash Display', sans-serif" }}>
+                          {item.subtitle}
+                        </p>
+                      )
                     )}
                   </motion.div>
                 ))}

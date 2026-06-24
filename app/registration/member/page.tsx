@@ -221,8 +221,21 @@ export default function MemberDashboardPage() {
                         className="flex flex-col md:flex-row md:items-center justify-between border-b border-zinc-900/60 pb-5 last:border-b-0 last:pb-0 gap-4"
                       >
                         <div>
-                          <span className="font-orbitron text-xs font-bold text-white uppercase tracking-wider block mb-2">
-                            {reg.event_title}
+                          <span className="font-orbitron text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1 mb-2">
+                            {reg.event_title === "X-FIFA" ? (
+                              <>
+                                <span>X-</span>
+                                <Image
+                                  src="/fifa.png"
+                                  alt="Triangle Circle Square"
+                                  width={60}
+                                  height={16}
+                                  className="h-[12px] w-auto object-contain brightness-0 invert inline-block align-middle"
+                                />
+                              </>
+                            ) : (
+                              reg.event_title
+                            )}
                           </span>
                           <div className="space-y-0.5 font-mono-custom text-[11px] text-slate-400 pl-3 border-l border-zinc-800">
                             {reg.participants.map((p, idx) => (
@@ -281,8 +294,21 @@ export default function MemberDashboardPage() {
                   >
                     <div className="relative w-full py-5 px-6 rounded-2xl border border-zinc-800 bg-zinc-950 hover:bg-zinc-900/40 hover:border-cyan-500/40 text-slate-200 hover:text-white transition-all duration-300 flex items-center justify-between shadow-[0_4px_12px_rgba(0,0,0,0.4)] hover:shadow-[0_4px_20px_rgba(0,242,254,0.08)] group">
                       <div className="flex-grow pr-4">
-                        <span className="font-orbitron text-sm sm:text-base font-black tracking-widest uppercase block">
-                          {event.title}
+                        <span className="font-orbitron text-sm sm:text-base font-black tracking-widest uppercase flex items-center gap-1">
+                          {event.title === "X-FIFA" ? (
+                            <>
+                              <span>X-</span>
+                              <Image
+                                src="/fifa.png"
+                                alt="Triangle Circle Square"
+                                width={60}
+                                height={16}
+                                className="h-[14px] sm:h-[16px] w-auto object-contain brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300 inline-block align-middle"
+                              />
+                            </>
+                          ) : (
+                            event.title
+                          )}
                         </span>
                         <span className="font-mono-custom text-[11px] text-zinc-500 group-hover:text-cyan-400/80 transition-colors duration-300 uppercase block mt-1">
                           {event.title === "X-FIFA" ? (

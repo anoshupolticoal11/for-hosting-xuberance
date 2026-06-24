@@ -123,25 +123,26 @@ export default function EventCard({
 
       <div className="relative z-10 pt-2 flex flex-col h-full justify-between">
         <div className="mb-1">
-          <h3 className="font-orbitron text-base sm:text-xl font-black tracking-wider text-slate-100 group-hover:text-slate-950 transition-colors duration-500 truncate whitespace-nowrap">
-            {title}
-          </h3>
-          {subtitle && (
-            title === "X-FIFA" ? (
-              <div className="mt-0.5 h-[1.25rem] sm:h-[1.5rem] flex items-center">
+          <h3 className="font-orbitron text-base sm:text-xl font-black tracking-wider text-slate-100 group-hover:text-slate-950 transition-colors duration-500 flex items-center gap-1.5 whitespace-nowrap">
+            {title === "X-FIFA" ? (
+              <>
+                <span>X-</span>
                 <Image
                   src="/fifa.png"
                   alt="Triangle Circle Square"
                   width={80}
                   height={24}
-                  className="h-[1.25rem] sm:h-[1.5rem] w-auto object-contain brightness-0 invert opacity-80 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-90 transition-all duration-500"
+                  className="h-[1.25rem] sm:h-[1.5rem] w-auto object-contain brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-500"
                 />
-              </div>
+              </>
             ) : (
-              <p className="text-cyan-300 text-sm sm:text-base mt-0.5 group-hover:text-slate-900/90 transition-colors duration-500 truncate whitespace-nowrap uppercase tracking-wide font-medium" style={{ fontFamily: "'Clash Display', sans-serif" }}>
-                {subtitle}
-              </p>
-            )
+              title
+            )}
+          </h3>
+          {subtitle && title !== "X-FIFA" && (
+            <p className="text-cyan-300 text-sm sm:text-base mt-0.5 group-hover:text-slate-900/90 transition-colors duration-500 truncate whitespace-nowrap uppercase tracking-wide font-medium" style={{ fontFamily: "'Clash Display', sans-serif" }}>
+              {subtitle}
+            </p>
           )}
           {tagline && !subtitle && (
             <p className="text-cyan-300 text-sm sm:text-base mt-0.5 group-hover:text-slate-900/90 transition-colors duration-500 truncate whitespace-nowrap uppercase tracking-wide font-medium" style={{ fontFamily: "'Clash Display', sans-serif" }}>
