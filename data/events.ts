@@ -117,7 +117,7 @@ export const sportingEvents: EventData[] = [
     description:
       "A knockout cricket tournament exclusively for boys. Teams play short limited over matches in cricket attire.",
     icon: Trophy,
-    participants: "6 + 4 substitutes",
+    participants: "6 + 3 substitutes",
     tags: ["KNOCKOUT", "TEAM"],
     category: "sporting",
   },
@@ -184,16 +184,7 @@ export const offStageEvents: EventData[] = [
     tags: ["LITERARY", "INDIVIDUAL"],
     category: "off-stage",
   },
-  {
-    title: "X-AVRITTI",
-    subtitle: "HINDI ELOCUTION",
-    description:
-      "A Hindi poetry recitation competition. Participants recite self-composed or published poems.",
-    icon: BookOpen,
-    participants: "2",
-    tags: ["LITERARY", "HINDI"],
-    category: "off-stage",
-  },
+
   {
     title: "X-PIXEL",
     subtitle: "PHOTOGRAPHY",
@@ -317,6 +308,16 @@ export const offStageEvents: EventData[] = [
 ];
 
 export const onStageEvents: EventData[] = [
+  {
+    title: "X-AVRITTI",
+    subtitle: "HINDI ELOCUTION",
+    description:
+      "A Hindi poetry recitation competition. Participants recite self-composed or published poems.",
+    icon: BookOpen,
+    participants: "2",
+    tags: ["LITERARY", "HINDI"],
+    category: "on-stage",
+  },
   {
     title: "X-INNOVATE",
     subtitle: "SHARK TANK",
