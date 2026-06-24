@@ -164,7 +164,7 @@ export default function CategoryEventsClient({ category }: CategoryEventsClientP
                   className="text-center py-20 bg-slate-950/20 rounded-3xl border border-cyan-500/5 backdrop-blur-sm"
                 >
                   <p className="font-mono-custom text-cyan-500/40 text-xs sm:text-sm tracking-[0.2em] uppercase">
-                    NO DEEP-SEA TRANSMISSIONS MATCH &quot;{searchQuery}&quot;
+                    &quot;{searchQuery}&quot; IS NOT A VALID EVENT. CHECK YOUR SPELLING.
                   </p>
                 </motion.div>
               )}
