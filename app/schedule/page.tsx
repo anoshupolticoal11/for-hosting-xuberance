@@ -56,7 +56,7 @@ const day2Schedule: ScheduleItem[] = [
   { event: "X-PRESS", subtitle: "Poster Making", venue: "Big Parlour", time: "12:30 PM - 3:00 PM" },
   { event: "X-TORKOBITORKO", subtitle: "Bengali Debate", venue: "Fr. Bruylants Hall", time: "1:00 PM - 3:00 PM" },
   { event: "X-PULL", subtitle: "Tug of War (Girls)", venue: "Senior School Main Field", time: "2:00 PM - 4:30 PM" },
-  { event: "X-TRAVAGANCE", subtitle: "Western Dance", venue: "Fr. Depelchin Auditorium", time: "2:00 PM - 4:00 PM / 4:00 PM - 6:30 PM" },
+  { event: "X-TRAVAGANCE", subtitle: "Western Dance", venue: "Fr. Depelchin Auditorium", time: "4:00 PM - 6:30 PM" },
 ];
 
 const day3Schedule: ScheduleItem[] = [
