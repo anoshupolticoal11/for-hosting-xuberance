@@ -130,8 +130,8 @@ export const offStageEvents: EventData[] = [
     description:
       "An EAFC 25 (PS5) football gaming tournament on knockout basis. Players compete in short matches with penalties as tiebreakers.",
     icon: Gamepad2,
-    participants: "1",
-    tags: ["GAMING", "INDIVIDUAL"],
+    participants: "2",
+    tags: ["GAMING", "TEAM"],
     category: "off-stage",
   },
   {

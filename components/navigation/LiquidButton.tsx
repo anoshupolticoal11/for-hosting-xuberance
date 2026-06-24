@@ -24,7 +24,14 @@ export default function LiquidButton() {
     checkSession();
 
     window.addEventListener("session-change", checkSession);
-    return () => window.removeEventListener("session-change", checkSession);
+
+    // Poll every 30 seconds to detect if account was deleted by admin
+    const interval = setInterval(checkSession, 30000);
+
+    return () => {
+      window.removeEventListener("session-change", checkSession);
+      clearInterval(interval);
+    };
   }, []);
 
   let href = "/registration";

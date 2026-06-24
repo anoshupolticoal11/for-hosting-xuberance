@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
-import { getSession } from "@/lib/session";
+import { getSession, clearSession } from "@/lib/session";
 import { rateLimit } from "@/lib/rate-limit";
 
 // GET: Retrieve registrations for the current logged-in member
@@ -8,6 +8,18 @@ export async function GET() {
   try {
     const session = await getSession();
     if (!session || session.role !== "member") {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    // Verify the account still exists (handles admin deletion while logged in)
+    const { data: account } = await supabaseAdmin
+      .from("accounts")
+      .select("id")
+      .eq("id", session.id)
+      .single();
+
+    if (!account) {
+      await clearSession();
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 

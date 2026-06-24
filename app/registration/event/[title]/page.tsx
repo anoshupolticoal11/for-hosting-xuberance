@@ -10,6 +10,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { allEvents } from "@/data/events";
 import { getParticipantCount } from "@/lib/event-utils";
+import Image from "next/image";
 
 interface PageProps {
   params: Promise<{
@@ -59,12 +60,16 @@ export default function EventRegistrationPage({ params }: PageProps) {
     };
     checkSession();
 
+    const interval = setInterval(checkSession, 15000);
+
     const initialFields = Array.from({ length: participantCount }).map(() => ({
       name: "",
       number: "",
       class: "",
     }));
     setParticipants(initialFields);
+
+    return () => clearInterval(interval);
   }, [participantCount, router]);
 
   const handleInputChange = (
@@ -165,12 +170,40 @@ export default function EventRegistrationPage({ params }: PageProps) {
 
           {/* Event Info Header */}
           <div className="border-b border-zinc-900 pb-6 mb-8 text-center sm:text-left">
-            <h1 className="font-orbitron text-xl md:text-2xl font-black tracking-widest text-slate-100 uppercase">
-              EVENT REGISTRATION: {event.title}
+            <h1 className="font-orbitron text-xl md:text-2xl font-black tracking-widest text-slate-100 uppercase flex items-center gap-1.5 flex-wrap justify-center sm:justify-start">
+              {event.title === "X-FIFA" ? (
+                <>
+                  <span>EVENT REGISTRATION: X-</span>
+                  <Image
+                    src="/fifa.png"
+                    alt="Triangle Circle Square"
+                    width={80}
+                    height={24}
+                    className="h-[20px] md:h-[24px] w-auto object-contain brightness-0 invert inline-block align-middle"
+                  />
+                </>
+              ) : (
+                `EVENT REGISTRATION: ${event.title}`
+              )}
             </h1>
-            <p className="font-mono-custom text-xs text-cyan-400 mt-1.5 uppercase">
-              {event.subtitle} — {event.participants} REQUIRED
-            </p>
+            {event.title === "X-FIFA" ? (
+              <div className="flex items-center justify-center sm:justify-start gap-1.5 mt-1.5">
+                <Image
+                  src="/fifa.png"
+                  alt="Triangle Circle Square"
+                  width={60}
+                  height={16}
+                  className="h-[14px] w-auto object-contain brightness-0 invert opacity-80 inline-block align-middle"
+                />
+                <span className="font-mono-custom text-xs text-cyan-400 uppercase">
+                  — {event.participants} REQUIRED
+                </span>
+              </div>
+            ) : (
+              <p className="font-mono-custom text-xs text-cyan-400 mt-1.5 uppercase">
+                <span style={{ fontFamily: "'Clash Display', sans-serif" }}>{event.subtitle}</span> — {event.participants} REQUIRED
+              </p>
+            )}
             <p className="font-sans text-xs md:text-sm text-slate-400 mt-3 leading-relaxed">
               {event.description}
             </p>

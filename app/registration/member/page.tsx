@@ -10,6 +10,7 @@ import Link from "next/link";
 import { LogOut, FileText, Download, Trash2, Edit3, Plus } from "lucide-react";
 import { allEvents, type EventData } from "@/data/events";
 import * as XLSX from "xlsx";
+import Image from "next/image";
 
 interface Participant {
   name: string;
@@ -34,6 +35,8 @@ export default function MemberDashboardPage() {
 
   useEffect(() => {
     fetchSessionAndRegistrations();
+    const interval = setInterval(fetchSessionAndRegistrations, 15000);
+    return () => clearInterval(interval);
   }, []);
 
   const fetchSessionAndRegistrations = async () => {
@@ -282,7 +285,18 @@ export default function MemberDashboardPage() {
                           {event.title}
                         </span>
                         <span className="font-mono-custom text-[11px] text-zinc-500 group-hover:text-cyan-400/80 transition-colors duration-300 uppercase block mt-1">
-                          {event.subtitle} — {event.description}
+                          {event.title === "X-FIFA" ? (
+                            <Image
+                              src="/fifa.png"
+                              alt="Triangle Circle Square"
+                              width={60}
+                              height={16}
+                              className="h-[14px] w-auto object-contain brightness-0 invert opacity-60 group-hover:opacity-80 transition-all duration-300 inline-block mr-1 align-middle"
+                            />
+                          ) : (
+                            <span style={{ fontFamily: "'Clash Display', sans-serif" }}>{event.subtitle}</span>
+                          )}
+                          {" "} — {event.description}
                         </span>
                       </div>
 

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { LucideIcon, Users } from "lucide-react";
 import { useState, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface EventCardProps {
   title: string;
@@ -126,12 +127,24 @@ export default function EventCard({
             {title}
           </h3>
           {subtitle && (
-            <p className="font-lobster-two text-cyan-300 text-sm sm:text-base mt-0.5 group-hover:text-slate-900/90 transition-colors duration-500 truncate whitespace-nowrap">
-              {subtitle}
-            </p>
+            title === "X-FIFA" ? (
+              <div className="mt-0.5 h-[1.25rem] sm:h-[1.5rem] flex items-center">
+                <Image
+                  src="/fifa.png"
+                  alt="Triangle Circle Square"
+                  width={80}
+                  height={24}
+                  className="h-[1.25rem] sm:h-[1.5rem] w-auto object-contain brightness-0 invert opacity-80 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-90 transition-all duration-500"
+                />
+              </div>
+            ) : (
+              <p className="text-cyan-300 text-sm sm:text-base mt-0.5 group-hover:text-slate-900/90 transition-colors duration-500 truncate whitespace-nowrap uppercase tracking-wide font-medium" style={{ fontFamily: "'Clash Display', sans-serif" }}>
+                {subtitle}
+              </p>
+            )
           )}
           {tagline && !subtitle && (
-            <p className="font-lobster-two text-cyan-300 text-sm sm:text-base mt-0.5 group-hover:text-slate-900/90 transition-colors duration-500 truncate whitespace-nowrap">
+            <p className="text-cyan-300 text-sm sm:text-base mt-0.5 group-hover:text-slate-900/90 transition-colors duration-500 truncate whitespace-nowrap uppercase tracking-wide font-medium" style={{ fontFamily: "'Clash Display', sans-serif" }}>
               {tagline}
             </p>
           )}
