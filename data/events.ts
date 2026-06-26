@@ -52,30 +52,60 @@ export interface EventData {
 
 export const sportingEvents: EventData[] = [
   {
-    title: "X-GOAL",
-    subtitle: "FOOTBALL",
+    title: "X-GOAL BOYS",
+    subtitle: "FOOTBALL (BOYS)",
     description:
-      "A knockout football tournament organized separately for boys and girls. Teams compete in short matches wearing official school jerseys.",
+      "A knockout football tournament organized for boys. Teams compete in short matches wearing official school jerseys.",
     icon: Goal,
     participants: "6 + 4 substitutes",
     tags: ["KNOCKOUT", "TEAM"],
     category: "sporting",
   },
   {
-    title: "X-HOOP",
-    subtitle: "BASKETBALL",
+    title: "X-GOAL GIRLS",
+    subtitle: "FOOTBALL (GIRLS)",
     description:
-      "A knockout basketball tournament held separately for boys and girls. Teams play with official school jerseys and rolling substitutions.",
+      "A knockout football tournament organized for girls. Teams compete in short matches wearing official school jerseys.",
+    icon: Goal,
+    participants: "6 + 4 substitutes",
+    tags: ["KNOCKOUT", "TEAM"],
+    category: "sporting",
+  },
+  {
+    title: "X-HOOP BOYS",
+    subtitle: "BASKETBALL (BOYS)",
+    description:
+      "A knockout basketball tournament held for boys. Teams play with official school jerseys and rolling substitutions.",
     icon: CircleDot,
     participants: "5 + 4 substitutes",
     tags: ["KNOCKOUT", "TEAM"],
     category: "sporting",
   },
   {
-    title: "X-KHO",
-    subtitle: "KHO KHO",
+    title: "X-HOOP GIRLS",
+    subtitle: "BASKETBALL (GIRLS)",
     description:
-      "A knockout kho kho tournament conducted separately for boys and girls. Teams compete with 9 players on the field and 3 reserves.",
+      "A knockout basketball tournament held for girls. Teams play with official school jerseys and rolling substitutions.",
+    icon: CircleDot,
+    participants: "5 + 4 substitutes",
+    tags: ["KNOCKOUT", "TEAM"],
+    category: "sporting",
+  },
+  {
+    title: "X-KHO BOYS",
+    subtitle: "KHO KHO (BOYS)",
+    description:
+      "A knockout kho kho tournament conducted for boys. Teams compete with 9 players on the field and 3 reserves.",
+    icon: Swords,
+    participants: "12",
+    tags: ["KNOCKOUT", "TEAM"],
+    category: "sporting",
+  },
+  {
+    title: "X-KHO GIRLS",
+    subtitle: "KHO KHO (GIRLS)",
+    description:
+      "A knockout kho kho tournament conducted for girls. Teams compete with 9 players on the field and 3 reserves.",
     icon: Swords,
     participants: "12",
     tags: ["KNOCKOUT", "TEAM"],
@@ -102,10 +132,20 @@ export const sportingEvents: EventData[] = [
     category: "sporting",
   },
   {
-    title: "X-PULL",
-    subtitle: "TUG OF WAR",
+    title: "X-PULL BOYS",
+    subtitle: "TUG OF WAR (BOYS)",
     description:
-      "A knockout tug of war competition held separately for boys and girls. Teams compete in best of three pulls on the field.",
+      "A knockout tug of war competition held for boys. Teams compete in best of three pulls on the field.",
+    icon: Dumbbell,
+    participants: "10 + 2 substitutes",
+    tags: ["STRENGTH", "TEAM"],
+    category: "sporting",
+  },
+  {
+    title: "X-PULL GIRLS",
+    subtitle: "TUG OF WAR (GIRLS)",
+    description:
+      "A knockout tug of war competition held for girls. Teams compete in best of three pulls on the field.",
     icon: Dumbbell,
     participants: "10 + 2 substitutes",
     tags: ["STRENGTH", "TEAM"],

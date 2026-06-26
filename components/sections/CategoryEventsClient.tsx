@@ -142,7 +142,7 @@ export default function CategoryEventsClient({ category }: CategoryEventsClientP
                 >
                   {filteredEvents.map((event, i) => {
                     // Convert event title like "X-GOAL" to "xgoal" to match the repsprofile PNG filename
-                    const slug = event.title.toLowerCase().replace(/-/g, "");
+                    const slug = event.title.toLowerCase().replace(/ boys| girls/g, "").replace(/-/g, "");
                     const profileHref = `/events/profile/${slug}`;
                     return (
                       <motion.div
