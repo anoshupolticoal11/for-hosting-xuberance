@@ -122,13 +122,23 @@ export const sportingEvents: EventData[] = [
     category: "sporting",
   },
   {
-    title: "X-PONG",
-    subtitle: "TABLE TENNIS",
+    title: "X-PONG BOYS",
+    subtitle: "TABLE TENNIS (BOYS)",
     description:
       "A knockout table tennis tournament organized separately for boys and girls. Teams compete in singles and doubles matches.",
     icon: Target,
     participants: "4",
-    tags: ["KNOCKOUT", "MIXED"],
+    tags: ["KNOCKOUT", "TEAM"],
+    category: "sporting",
+  },
+  {
+    title: "X-PONG GIRLS",
+    subtitle: "TABLE TENNIS (GIRLS)",
+    description:
+      "A knockout table tennis tournament organized separately for boys and girls. Teams compete in singles and doubles matches.",
+    icon: Target,
+    participants: "4",
+    tags: ["KNOCKOUT", "TEAM"],
     category: "sporting",
   },
   {
