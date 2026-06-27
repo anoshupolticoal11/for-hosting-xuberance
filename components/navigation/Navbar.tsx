@@ -53,7 +53,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${scrolled
             ? "bg-slate-950/70 border-b border-cyan-500/15 py-3 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
-            : "bg-transparent py-5"
+            : "bg-slate-950/70 border-b border-cyan-500/15 py-3 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] md:bg-transparent md:border-b-0 md:py-5 md:backdrop-blur-none md:shadow-none"
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between">

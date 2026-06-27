@@ -167,7 +167,7 @@ export const sportingEvents: EventData[] = [
     description:
       "A knockout cricket tournament exclusively for boys. Teams play short limited over matches in cricket attire.",
     icon: Trophy,
-    participants: "6 + 3 substitutes",
+    participants: "8 + 2 + 1 substitutes",
     tags: ["KNOCKOUT", "TEAM"],
     category: "sporting",
   },
