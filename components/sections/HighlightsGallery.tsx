@@ -18,7 +18,7 @@ const galleryPhotos: GalleryPhoto[] = [
   { src: "/gallery/X-ALAAP.JPG", title: "X-ALAAP" },
   { src: "/gallery/X-KHO.JPG", title: "X-KHO" },
   { src: "/gallery/X-PONG.JPG", title: "X-PONG" },
-  { src: "/gallery/X-TEMPORE.JPG", title: "X-ACOUSTIC" },
+  { src: "/gallery/X-TEMPORE.jpeg", title: "X-ACOUSTIC" },
   { src: "/gallery/X-TRAVAGANCE.JPG", title: "X-TRAVAGANCE" },
   { src: "/gallery/X-VIBRANCE.JPG", title: "X-VIBRANCE" },
   { src: "/gallery/X-HIBIT.JPG", title: "X-HIBIT" },
