@@ -18,7 +18,7 @@ const galleryPhotos: GalleryPhoto[] = [
   { src: "/gallery/X-ALAAP.JPG", title: "X-ALAAP" },
   { src: "/gallery/X-KHO.JPG", title: "X-KHO" },
   { src: "/gallery/X-PONG.JPG", title: "X-PONG" },
-  { src: "/gallery/X-TEMPORE.JPG", title: "X-TEMPORE" },
+  { src: "/gallery/X-TEMPORE.JPG", title: "X-ACOUSTIC" },
   { src: "/gallery/X-TRAVAGANCE.JPG", title: "X-TRAVAGANCE" },
   { src: "/gallery/X-VIBRANCE.JPG", title: "X-VIBRANCE" },
   { src: "/gallery/X-HIBIT.JPG", title: "X-HIBIT" },
@@ -132,7 +132,7 @@ export default function HighlightsGallery() {
         {isMobile ? (
           /* Mobile 3D Carousel View */
           <div className="relative flex flex-col items-center justify-center py-10 w-full min-h-[460px] overflow-visible select-none">
-            <div 
+            <div
               className="relative w-full flex items-center justify-center h-[340px]"
               style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
             >
