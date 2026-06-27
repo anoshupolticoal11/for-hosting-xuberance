@@ -105,7 +105,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-8 bg-transparent pt-20 pb-16 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-8 bg-transparent pt-32 md:pt-20 pb-16 overflow-hidden"
     >
       <motion.div
         variants={containerVariants}
@@ -115,7 +115,7 @@ export default function HeroSection() {
       >
         <motion.div
           variants={itemVariants}
-          className="flex flex-col items-center mt-12 mb-0 text-center px-4 z-10"
+          className="flex flex-col items-center mt-24 md:mt-12 mb-0 text-center px-4 z-10"
         >
           <span className="font-orbitron font-black text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-normal sm:tracking-[0.15em] uppercase bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-cyan-100 to-cyan-400 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] inline-block max-w-full whitespace-nowrap">
             St. Xavier&apos;s Collegiate School
